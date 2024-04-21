@@ -1,0 +1,33 @@
+{{- $footer := resources.Get "js/extended/footer.js" | resources.ExecuteAsTemplate "js/extended/footer.js" . | resources.Minify }}
+{{- $footer_ := resources.Get "js/extended/footer_.js" | resources.ExecuteAsTemplate "js/extended/footer_.js" . | resources.Minify }}
+<script defer crossorigin="anonymous" src="{{ $footer.RelPermalink }}?{{ now.Unix }}"></script>
+<script defer crossorigin="anonymous" src="{{ $footer_.RelPermalink }}?{{ now.Unix }}"></script>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-left-section">
+            <div class="footer-copyright">
+                <span>&copy; 2005 - {{ now.Year }} {{ site.Params.title }}</span>
+            </div>
+            <div class="footer-links">
+                <a href="/about">About</a>
+                <a href="/contact">Contact</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/terms-and-conditions">Terms</a>
+            </div>
+        </div>
+        <div class="footer-socials">
+            <a href="https://github.com/virtualmin" target="_blank">
+                <i class="wm wm-xl wm-github"></i>
+                <span class="footer-searchable">GitHub</span>
+            </a>
+            <a href="https://t.me/virtualmin" target="_blank">
+                <i class="wm wm-xl wm-telegram"></i>
+                <span class="footer-searchable">Telegram</span>
+            </a>
+            <a href="https://youtube.com/virtualmin" target="_blank">
+                <i class="wm wm-xl wm-youtube"></i>
+                <span class="footer-searchable">YouTube</span>
+            </a>
+        </div>
+    </div>
+</footer>
