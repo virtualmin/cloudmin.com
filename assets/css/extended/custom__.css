@@ -46,3 +46,34 @@ body.dark .logo>a>svg>g>path {
 .page-index .dark .index-page-intro-container-inner-content {
     background: linear-gradient(60deg, #763d00 6%, #906301 86%);
 }
+
+body #menu>li.menu-item--singin>a .btn {
+    background-color: #ffffff36;
+    border-color: #ffffff86;
+}
+
+body.dark #menu>li.menu-item--singin>a .btn {
+    background-color: #ffffff30;
+    border-color: #ffffff80;
+}
+
+body #menu>li.menu-item--singin>a .btn:hover,
+body #menu>li.menu-item--singin>a .btn:focus {
+    background-color: #ffffff66;
+    border-color: #ffffff99;
+    box-shadow: 0 0 0 3px #ffffff99;
+}
+
+body.dark #menu>li.menu-item--singin>a .btn:hover,
+body.dark #menu>li.menu-item--singin>a .btn:focus {
+    background-color: #ffffff60;
+    border-color: #ffffff93;
+    box-shadow: 0 0 0 3px #ffffff93;
+}
+
+body #menu>li.menu-item--singin>a .btn:active {
+    box-shadow: 0 0 0 3px #ffffff66;
+}
+body.dark #menu>li.menu-item--singin>a .btn:active {
+    box-shadow: 0 0 0 3px #ffffff60;
+}
