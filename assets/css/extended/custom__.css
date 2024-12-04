@@ -1,22 +1,18 @@
 :root {
     --header: #ab5301f6;
-    --header-logo: #ab5301f6;
+    --header-logo: #ffffffe9;
     --outline: #e9730596;
 
 }
 
 .dark {
     --header: #0c0c0cec;
-    --header-logo: #ff8919ad;
+    --header-logo: #ffffffd1;
     --outline: #ab530186;
 }
 
 html .main *:focus-visible {
     outline-color: var(--outline);
-}
-
-body .logo>a>svg>g>g>g>g>g>g>path {
-    fill: var(--header-logo);
 }
 
 body .logo>a>svg>g>g>g>g>path,
@@ -27,16 +23,31 @@ body .logo>a>svg>g>path {
 .dark .header .logo>a {
     filter: none;
 }
+
 .page-index .header:not(.header-sticky) .logo>a>svg>g>g>g>g>g>g>path,
 body.dark .logo>a>svg>g>g>g>g>g>g>path {
     fill: var(--theme) !important;
 }
-
-.page-index .header:not(.header-sticky) .logo>a>svg>g>g>g>g>path,
-.page-index .header:not(.header-sticky) .logo>a>svg>g>path,
+.page-index #top > .header:not(.header-sticky) > nav > div > a > svg > g:nth-child(2) > g > rect,
+.page-index #top > .header:not(.header-sticky) > nav > div > a > svg > g:nth-child(2) > g > path,
+.page-index #top > .header:not(.header-sticky) .logo>a>svg>g>g>g>g>path,
+.page-index #top > .header:not(.header-sticky) .logo>a>svg>g>path,
+.page-index #top > .header:not(.header-sticky) .logo>a>svg> g:nth-child(2) > g > path,
+body > .header > nav > div > a > svg > g:nth-child(1) > g > g:nth-child(1) > g > path,
+body .logo>a>svg > g:nth-child(1) > g > g:nth-child(3) > g > path,
+body.dark .logo>a>svg path,
 body.dark .logo>a>svg>g>g>g>g>path,
 body.dark .logo>a>svg>g>path {
     fill: var(--header-logo) !important;
+}
+
+.page-index #top:not(.dark) > .header:not(.header-sticky) > nav > div > a > svg > g:nth-child(2) > g > rect,
+.page-index #top:not(.dark) > .header:not(.header-sticky) > nav > div > a > svg > g:nth-child(2) > g > path,
+.page-index #top:not(.dark) > .header:not(.header-sticky) .logo>a>svg>g>g>g>g>path,
+.page-index #top:not(.dark) > .header:not(.header-sticky) .logo>a>svg>g>path,
+.page-index #top:not(.dark) > .header:not(.header-sticky) .logo>a>svg> g:nth-child(2) > g > path,
+body:not(.dark) .logo>a>svg>g>g>g>g>g>g>path {
+    fill: var(--header) !important;
 }
 
 .page-index .index-page-intro-container-inner-content {
