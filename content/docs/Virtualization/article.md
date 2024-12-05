@@ -7,7 +7,7 @@ weight: 6502010
 
 Virtualization in Cloudmin refers to running virtual systems that behave like physical computers but are emulated on a real machine. These systems are often called “virtual machines” or “VPS.” 
 
-{{< alert primary exclamation "" "Starting with Cloudmin 10, only KVM and Xen virtualization types are supported. This change allows the development team to focus on enhancing these platforms, as maintaining multiple virtualization types has become unsustainable." >}}
+{{< alert warning exclamation "" "Starting with Cloudmin 10, only KVM and Xen virtualization types are supported. This change allows the development team to focus on enhancing these platforms, as maintaining multiple virtualization types has become unsustainable." >}}
 
 ### Why use virtualization
 
