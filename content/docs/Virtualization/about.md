@@ -7,7 +7,7 @@ weight: 6502010
 
 Virtualization in Cloudmin refers to running virtual systems that behave like physical computers but are emulated on a real machine. These systems are often called “virtual machines” or “VPS.” 
 
-{{< alert warning exclamation "" "Starting with Cloudmin 10, only KVM and Xen virtualization types are supported. This change allows the development team to focus on enhancing these platforms, as maintaining multiple virtualization types has become unsustainable." >}}
+{{< alert primary exclamation "" "Starting with Cloudmin 10, only the KVM virtualization type is supported. Existing installations using Xen and other types will continue to function, but new installations will exclusively use KVM." >}}
 
 ### Why use virtualization
 
@@ -28,15 +28,20 @@ Virtualization provides several benefits:
 
     Since many applications don’t require the full capacity of physical systems, virtualization optimizes the use of resources.
 
-### Virtualization types  
+### Virtualization types
 
-Virtualization technologies vary in how they handle isolation, resource allocation, and kernel usage, which impacts performance and flexibility.
+In previous versions, Cloudmin supported multiple virtualization technologies like Xen and some other. However, starting with Cloudmin 10, the focus has shifted entirely to KVM due to its integration into the Linux kernel, robust performance, and broad industry support.
 
-   - **Pros**: High isolation, flexibility with disk and file systems, and the ability to use different kernels.  
-   - **Cons**: Higher RAM and CPU usage per system. Unused resources in one system remain unavailable to others.  
+**KVM**:
+- **Pros**: High isolation, flexibility with disk and file systems, and the ability to use a standard Linux kernel. Widely supported and well-integrated with modern hardware virtualization extensions.
+- **Cons**: Slightly higher resource overhead compared to container-based solutions.
 
-### Which virtualization type to use
+### Hardware and configuration requirements
 
-- **KVM**: Ideal for systems requiring full virtualization and a standard Linux kernel. While resource-intensive, it supports modern hardware features and offers a robust solution for most use cases.  
+- **CPU virtualization support**: Ensure your system’s BIOS/UEFI settings enable Intel VT-x or AMD-V extensions.
+- **Sufficient resources**: Have enough RAM, disk space, and ideally set up LVM for efficient virtual disk management.
+- **Bridged networking**: A network bridge is typically required so virtual machines can share and manage host networking resources.
 
-- **Xen**: Ideal for environments that prioritize efficiency and lower overhead, especially when the guest OS can be optimized for paravirtualization. Xen also supports full virtualization when required, making it flexible for diverse workloads.  
+### Getting started with KVM
+
+For detailed steps on setting up KVM hosts, configuring bridging, and managing virtual machines, refer to the [KVM Virtualization](/docs/virtualization/kvm/).
