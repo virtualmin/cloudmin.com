@@ -1,14 +1,15 @@
 :root {
-    --header: #ab5301f6;
+    --header: #ab5801f6;
     --header-logo: #ffffffe9;
     --outline: #e9730596;
-
+    --link: #c44610;
 }
 
 .dark {
     --header: #0c0c0cec;
-    --header-logo: #ffffffd1;
+    --header-logo: #c76c0cf6;
     --outline: #ab530186;
+    --link: #fc6a2bec;
 }
 
 html .main *:focus-visible {
@@ -35,6 +36,7 @@ body.dark .logo>a>svg>g>g>g>g>g>g>path {
 .page-index #top > .header:not(.header-sticky) .logo>a>svg> g:nth-child(2) > g > path,
 body > .header > nav > div > a > svg > g:nth-child(1) > g > g:nth-child(1) > g > path,
 body .logo>a>svg > g:nth-child(1) > g > g:nth-child(3) > g > path,
+body.dark .logo>a g g:nth-child(2) rect,
 body.dark .logo>a>svg path,
 body.dark .logo>a>svg>g>g>g>g>path,
 body.dark .logo>a>svg>g>path {
