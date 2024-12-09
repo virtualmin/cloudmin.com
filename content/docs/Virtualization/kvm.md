@@ -122,9 +122,9 @@ ifdown eth0 && ifup br0
 #### Add a new KVM host system
 - Install Webmin and Cloudmin packages on the host system
 - Add the system to Cloudmin:
-    - Navigate to "Host Systems ⇾ KVM Host Settings" page and fill in the host's details
-      - Select the newly added host, provide the `/kvm` directory and specify an LVM volume group if preferred
-      - Enter an IP range for guests and a DNS domain to assign to new VMs
-      - Click "Save" button
+    - Navigate to "Host Systems ⇾ KVM Host Settings" page and fill in the host's details.
+      - Select the newly added host, provide the `/kvm` directory and specify an LVM volume group if preferred.
+      - Enter an IP range for guests and a DNS domain to assign to new VMs.
+      - Click "Save" button.
 
 After completing these steps, your host should be ready to create and run KVM-based virtual machines through Cloudmin.
