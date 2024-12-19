@@ -1,15 +1,15 @@
 :root {
-    --header: #ab5801f6;
-    --header-logo: #ffffffe9;
-    --outline: #e9730596;
-    --link: #c44610;
+    --header: #ac5820f4;
+    --header-logo: #ffffff;
+    --outline: #9d5800ee;
+    --link: #9d5800;
 }
 
 .dark {
     --header: #0c0c0cec;
-    --header-logo: #ed7003f6;
+    --header-logo: #b9642b;
     --outline: #ab530186;
-    --link: #fc6a2bec;
+    --link: #fc6a2bcc;
 }
 
 html .main *:focus-visible {
