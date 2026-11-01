@@ -1,0 +1,6 @@
+{{- $currentPage := . }}
+<li class="menu-item--download"><a href="/download/"><span{{ with $currentPage.File }}{{ if eq $currentPage.File.LogicalName "download.md" }} class="active"{{ end }}{{ end }}>Download</span></a></li>
+<li class="menu-item--shop"><a href="https://www.virtualmin.com/product/cloudmin-professional-monthly-subscription/" onclick="themeLink(event, this)" target="_self"><span>Shop</span></a></li>
+<li class="menu-item--docs"><a href="/docs/"><span{{ with $currentPage.File }}{{ if eq $currentPage.File.LogicalName "docs.md" }} class="active"{{ end }}{{ end }}>Documentation</span></a></li>
+<li class="menu-item--support"><a href="/support/"><span{{ with $currentPage.File }}{{ if eq $currentPage.File.LogicalName "support.md" }} class="active"{{ end }}{{ end }}>Support</span></a></li>
+<li><a href="https://forum.virtualmin.com/c/cloudmin/" onclick="themeLink(event, this)" target="_self"><span>Forum</span></a></li>

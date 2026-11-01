@@ -59,14 +59,6 @@ module:
     target: layouts/shortcodes/maintenance.html
   - source: ../virtualmin.com/layouts/_default/_markup/archives.html
     target: layouts/_default/_markup/archives.html
-  - source: ../virtualmin.com/layouts/partials/extend_header_menu_items_before.html
-    target: layouts/partials/extend_header_menu_items_before.html
-  - source: ../virtualmin.com/layouts/partials/nav_menu.html
-    target: layouts/partials/nav_menu.html
-  - source: ../virtualmin.com/layouts/partials/extend_header_after.html
-    target: layouts/partials/extend_header_after.html
-  - source: ../virtualmin.com/layouts/partials/extend_header_menu_items_after.html
-    target: layouts/partials/extend_header_menu_items_after.html
 
   - source: assets
     target: assets
@@ -104,7 +96,7 @@ module:
 
   imports:
   - path: "../../webmin.com/themes/PaperMod"
-   
+
 canonifyURLs: true
 
 minify:
@@ -121,6 +113,10 @@ params:
   keywords: [webmin, usermin, virtualmin, cloudmin, linux, system administration]
   author: Jamie Cameron, Joe Cooper, Ilia Ross
 
+  messages:
+    thats-an-error: "THAT’S AN ERROR"
+    page-not-found: "PAGE NOT FOUND"
+
   # hide default footer
   hideFooter: true
 
@@ -136,9 +132,9 @@ params:
   # we need to respect user OS preferences in terms of chosen color palette
   defaultTheme: auto
   disableThemeToggle: false
-  
+
   ShowReadingTime: true
-  
+
   ShowShareButtons: false
   ShowPostNavLinks: false
   ShowBreadCrumbs: false
@@ -151,7 +147,7 @@ params:
   showtoc: false
   tocopen: false
 
-  # Embed Webmin logo nicely
+  # Embed Cloudmin logo nicely
   label:
     text: " "
     iconSVG: '<svg width="100%" height="100%" viewBox="0 0 180 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;"> <g transform="matrix(0.920205,0,0,-0.920205,-75.7845,90.1303)"> <g> <g> <g transform="matrix(1,0,0,1,46.1923,93.6944)"> <path d="M60.547,0C70.395,-0.376 66.096,-5.329 78.599,-2.028C89.25,0.784 91.393,-16.597 80.241,-15.498C72.479,-14.733 75.827,-28.189 60.547,-29.029C52.078,-29.029 45.211,-22.529 45.211,-14.515C45.211,-6.5 52.078,-0 60.547,-0" style="fill:rgb(230,126,56);fill-rule:nonzero;"/> </g> </g> <g> <g> <g> <g transform="matrix(1,0,0,-1,34.9754,69.5615)"> <path d="M79.019,-17.541C77.327,-19.713 74.506,-20.474 72.278,-20.474C66.046,-20.474 61.506,-16.385 61.506,-9.983C61.506,-3.582 66.046,0.507 72.278,0.507C75.014,0.507 77.834,-0.592 79.498,-2.961L75.832,-5.697C74.929,-4.343 73.491,-3.554 71.714,-3.554C68.528,-3.554 66.074,-6.261 66.074,-9.984C66.074,-13.706 68.528,-16.414 71.855,-16.414C73.491,-16.414 74.76,-15.821 75.635,-14.778L79.019,-17.541Z" style="fill:white;fill-rule:nonzero;"/> </g> </g> </g> <g> <g> <g transform="matrix(1,0,0,-1,59.0079,82.1273)"> <path d="M61.211,0L63.091,0L63.091,-3.033C63.091,-3.823 63.241,-4.587 64.219,-4.587C65.084,-4.587 65.059,-3.672 65.059,-3.221L65.059,-0L66.939,-0L66.939,-3.221C66.939,-3.973 67.215,-4.587 68.08,-4.587C68.694,-4.587 68.907,-4.111 68.907,-3.547L68.907,0L70.787,0L70.787,-3.597C70.787,-5.076 70.286,-6.242 68.631,-6.242C67.729,-6.242 67.14,-5.928 66.701,-5.151C66.375,-5.891 65.673,-6.242 64.821,-6.242C63.906,-6.242 63.292,-5.74 63.041,-5.264L63.016,-5.264L63.016,-6.091L61.211,-6.091L61.211,0Z" style="fill:white;fill-rule:nonzero;"/> </g> </g> </g> </g> </g> </g> <g transform="matrix(1.5412,0,0,1.5412,-1.34616,23.7258)"> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M70.3,-9.048C69.462,-10.15 68.023,-10.664 66.657,-10.664C63.455,-10.664 61.237,-8.343 61.237,-5.112C61.237,-2.497 63.279,0.264 66.584,0.264C68.963,0.264 70.212,-1.131 70.52,-1.557L69.33,-2.453C68.713,-1.586 67.803,-1.058 66.613,-1.058C64.189,-1.058 62.735,-2.923 62.735,-5.112C62.735,-7.476 64.278,-9.342 66.613,-9.342C67.568,-9.342 68.537,-8.916 69.125,-8.152L70.3,-9.048Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <rect x="71.989" y="-11.104" width="1.322" height="11.104" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M76.484,-3.481C76.484,-4.891 77.365,-5.905 78.775,-5.905C80.185,-5.905 81.066,-4.891 81.066,-3.481C81.066,-2.071 80.185,-1.058 78.775,-1.058C77.365,-1.058 76.484,-2.071 76.484,-3.481ZM75.073,-3.481C75.073,-1.454 76.704,0.176 78.775,0.176C80.846,0.176 82.476,-1.454 82.476,-3.481C82.476,-5.508 80.846,-7.139 78.775,-7.139C76.704,-7.139 75.073,-5.508 75.073,-3.481Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M90.305,-6.962L88.983,-6.962L88.983,-3.378C88.983,-1.763 88.146,-1.058 87.044,-1.058C86.207,-1.058 85.458,-1.542 85.458,-2.85L85.458,-6.962L84.136,-6.962L84.136,-2.482C84.136,-0.632 85.311,0.176 86.663,0.176C87.735,0.176 88.616,-0.338 88.954,-1.072L88.983,-1.072L88.983,-0L90.305,-0L90.305,-6.962Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M99.28,-11.104L97.958,-11.104L97.958,-5.963L97.928,-5.963C97.458,-6.683 96.504,-7.139 95.505,-7.139C93.36,-7.139 91.965,-5.567 91.965,-3.481C91.965,-1.425 93.346,0.176 95.505,0.176C96.445,0.176 97.414,-0.25 97.928,-0.999L97.958,-0.999L97.958,-0L99.28,-0L99.28,-11.104ZM95.666,-1.058C94.256,-1.058 93.375,-2.071 93.375,-3.481C93.375,-4.891 94.256,-5.905 95.666,-5.905C97.077,-5.905 97.958,-4.891 97.958,-3.481C97.958,-2.071 97.077,-1.058 95.666,-1.058Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M101.277,0L102.599,0L102.599,-3.613C102.599,-5.185 103.451,-5.905 104.406,-5.905C105.684,-5.905 105.875,-4.965 105.875,-3.643L105.875,0L107.197,0L107.197,-3.804C107.197,-5.038 107.696,-5.905 108.974,-5.905C110.252,-5.905 110.472,-4.935 110.472,-3.878L110.472,0L111.794,0L111.794,-4.054C111.794,-5.611 111.295,-7.139 109.15,-7.139C108.313,-7.139 107.402,-6.698 106.947,-5.846C106.506,-6.698 105.801,-7.139 104.773,-7.139C103.525,-7.139 102.673,-6.287 102.541,-5.875L102.511,-5.875L102.511,-6.962L101.277,-6.962L101.277,0Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M113.895,0L115.217,0L115.217,-6.962L113.895,-6.962L113.895,0ZM113.586,-9.459C113.586,-8.931 114.027,-8.49 114.556,-8.49C115.084,-8.49 115.525,-8.931 115.525,-9.459C115.525,-9.988 115.084,-10.429 114.556,-10.429C114.027,-10.429 113.586,-9.988 113.586,-9.459Z" style="fill:white;fill-rule:nonzero;"/> </g> <g transform="matrix(1,0,0,1,-20.7297,0.565327)"> <path d="M117.317,0L118.639,0L118.639,-3.584C118.639,-5.2 119.476,-5.905 120.578,-5.905C121.415,-5.905 122.164,-5.42 122.164,-4.113L122.164,0L123.486,0L123.486,-4.48C123.486,-6.331 122.311,-7.139 120.96,-7.139C119.888,-7.139 119.006,-6.624 118.668,-5.89L118.639,-5.89L118.639,-6.962L117.317,-6.962L117.317,0Z" style="fill:white;fill-rule:nonzero;"/> </g> </g> </svg>'
