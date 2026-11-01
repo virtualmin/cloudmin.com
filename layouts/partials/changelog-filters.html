@@ -1,0 +1,12 @@
+{{/* Filter links for a changelog or tag page, passed as the context. Cloudmin
+     has one product tag today; more tags appear here as they are added. */}}
+{{- $current := .Data.Term | default "changelog" }}
+<nav aria-label="Filter releases">
+  <ul class="post-tags changelog-filters">
+    {{- range slice "changelog" "cloudmin-changelog" }}
+    {{- with site.GetPage (printf "/tags/%s" .) }}
+    <li><a href="{{ .RelPermalink }}"{{ if eq .Data.Term $current }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a></li>
+    {{- end }}
+    {{- end }}
+  </ul>
+</nav>

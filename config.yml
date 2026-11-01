@@ -50,15 +50,16 @@ module:
     target: layouts/partials/header.html
   - source: ../webmin.com/layouts/partials/main-buttons.html
     target: layouts/partials/main-buttons.html
-  
+
+  # Shared with virtualmin.com: landing layout, archive list and status pages
   - source: ../virtualmin.com/layouts/index.html
     target: layouts/index.html
+  - source: ../virtualmin.com/layouts/_default/archives.html
+    target: layouts/_default/archives.html
   - source: ../virtualmin.com/layouts/shortcodes/error.html
     target: layouts/shortcodes/error.html
   - source: ../virtualmin.com/layouts/shortcodes/maintenance.html
     target: layouts/shortcodes/maintenance.html
-  - source: ../virtualmin.com/layouts/_default/_markup/archives.html
-    target: layouts/_default/_markup/archives.html
 
   - source: assets
     target: assets
