@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Redirect only the bare domain to www, skip ACME
+RewriteCond %{REQUEST_URI} !^/.well-known/
+RewriteCond %{HTTP_HOST} ^cloudmin\.com$ [NC]
+RewriteRule ^ https://www.cloudmin.com%{REQUEST_URI} [R=301,L]
+
+# Redirect direct call to index.html to /
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Internally rewrite requests for /changelog/ to serve /archives/
+RewriteCond %{THE_REQUEST} /archives/?[\s?]
+RewriteRule ^archives/?$ /changelog/ [R=301,L]
+RewriteRule ^changelog/$ /archives/ [L]
+
+# Documentation pages from the Cloudmin 9 site
+RewriteRule ^docs/virtualization/kvm/?$ /docs/installation/host-requirements/ [R=301,L]
+RewriteRule ^docs/virtualization/lvm/?$ /docs/storage/storage-pools/ [R=301,L]
+RewriteRule ^docs/virtualization/about/?$ /docs/getting-started/what-is-cloudmin-10/ [R=301,L]
+RewriteRule ^docs/virtualization/?$ /docs/ [R=301,L]
+RewriteRule ^docs/cloudmin-services/?.*$ /docs/roadmap/ [R=301,L]
+RewriteRule ^docs/virtual-machine-management/?.*$ /docs/virtual-machines/managing-virtual-machines/ [R=301,L]
+</IfModule>
