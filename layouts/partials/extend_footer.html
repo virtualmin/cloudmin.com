@@ -1,7 +1,21 @@
-{{- $footer := resources.Get "js/extended/footer.js" | resources.ExecuteAsTemplate "js/extended/footer.js" . | resources.Minify }}
-{{- $footer_ := resources.Get "js/extended/footer_.js" | resources.ExecuteAsTemplate "js/extended/footer_.js" . | resources.Minify }}
-<script defer crossorigin="anonymous" src="{{ $footer.RelPermalink }}?{{ now.Unix }}"></script>
-<script defer crossorigin="anonymous" src="{{ $footer_.RelPermalink }}?{{ now.Unix }}"></script>
+{{- $footer := resources.Get "js/extended/footer.js"
+    | resources.ExecuteAsTemplate "assets/js/extended/footer.js" .
+    | resources.Minify
+    | fingerprint -}}
+
+{{- $installCommand := resources.Get "js/extended/install-command.js"
+    | resources.ExecuteAsTemplate "assets/js/extended/install-command.js" .
+    | resources.Minify
+    | fingerprint -}}
+
+{{- $installCommandCloudmin := resources.Get "js/extended/install-command-cloudmin.js"
+    | resources.ExecuteAsTemplate "assets/js/extended/install-command-cloudmin.js" .
+    | resources.Minify
+    | fingerprint -}}
+
+<script defer crossorigin="anonymous" src="{{ $footer.RelPermalink }}" integrity="{{ $footer.Data.Integrity }}"></script>
+<script crossorigin="anonymous" src="{{ $installCommandCloudmin.RelPermalink }}" integrity="{{ $installCommandCloudmin.Data.Integrity }}"></script>
+<script defer crossorigin="anonymous" src="{{ $installCommand.RelPermalink }}" integrity="{{ $installCommand.Data.Integrity }}"></script>
 <footer class="footer">
     <div class="footer-content">
         <div class="footer-left-section">
