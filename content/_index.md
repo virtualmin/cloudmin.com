@@ -15,7 +15,7 @@ Cloudmin GPL is free and manages one host with an unlimited number of virtual ma
 
 If you run Virtualmin, Cloudmin is the quickest way to get more of it: choose a Virtualmin GPL or Pro template and the hosting stack installs inside the new guest, with progress on the host and the guest's Webmin reachable through it, even behind NAT.
 
-<!-- {{< html div chocolat-drop >}} -->
+{{< html div chocolat-drop >}}
 
 ## Cloudmin Features
 Cloudmin gives you one place to create, run, protect and reach KVM virtual machines on a Linux host. Built on Webmin, it adds the operational tools around libvirt that a host needs every day.

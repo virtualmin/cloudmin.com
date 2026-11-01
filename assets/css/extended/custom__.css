@@ -362,6 +362,18 @@ body .logo>a>svg>g:nth-child(1)>g>g:nth-child(2) path {
     border-color: #c95014;
 }
 
+/* Landing screenshot gallery under the intro. The frame follows the
+   captures' own proportions so they fill it without bands above and below,
+   and the colours stay as captured instead of the hue shift the shared
+   Virtualmin rule applies to its screenshots. */
+.page-index .chocolat-drop {
+    aspect-ratio: 3418 / 1970;
+}
+
+html:not(.chocolat-fullscreen).page-index .chocolat-img {
+    filter: none;
+}
+
 /* Keep punctuation next to inline code. Docs tables drop the code
    background, so its padding and margin only left loose gaps. */
 html[class*=page-docs] article.post-single table tr>th code,
