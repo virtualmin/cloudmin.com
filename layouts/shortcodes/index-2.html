@@ -1,3 +1,28 @@
 <!-- WHY -->
-
+<div class="docs-cards-container">
+    <div class="docs-card">
+      <h4 class="docs-title">A short path to a running guest</h4>
+      <p>Install Cloudmin on a supported host, pick an image from the catalogue and click Create. The installer prepares libvirt, a NAT network, a default storage pool and firmware, and reports readiness before it calls the host done.</p>
+    </div>
+    <div class="docs-card">
+      <h4 class="docs-title">Built on libvirt, not around it</h4>
+      <p>Cloudmin never assembles raw QEMU command lines or scrapes virsh output. Libvirt stays the source of truth for virtual hardware, networks and storage, so other tools and your own scripts see the same machines.</p>
+    </div>
+    <div class="docs-card">
+      <h4 class="docs-title">Safe by design</h4>
+      <p>Creation, cloning, backups and restores run as durable jobs with resource reservations, progress and recovery after an interrupted controller. Unprivileged workers handle downloads, disk inspection and consoles, so a bad image cannot take the host with it.</p>
+    </div>
+    <div class="docs-card">
+      <h4 class="docs-title">Virtualmin inside every guest</h4>
+      <p>Choose a Virtualmin GPL or Pro template and Cloudmin installs the hosting stack inside the new virtual machine, tracks progress, and opens the guest's Webmin through the host for machines behind NAT.</p>
+    </div>
+    <div class="docs-card">
+      <h4 class="docs-title">Open source core, unlimited guests</h4>
+      <p>Cloudmin GPL manages one host with as many virtual machines as it can carry. Pro adds custom guest setup scripts, cloud backup destinations and image capture today, with tenancy to follow on the same shared core. Cloudmin Connect, planned as a separate product, will bring many hosts together.</p>
+    </div>
+    <div class="docs-card">
+      <h4 class="docs-title">The same API for people and scripts</h4>
+      <p>The web interface, the command line and remote clients call one versioned JSON API with signed requests, Webmin permissions and audit logging. Automate creation, power control and management the way you already automate Virtualmin.</p>
+    </div>
+</div>
 <!-- END WHY -->
