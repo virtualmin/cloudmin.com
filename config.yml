@@ -3,6 +3,9 @@ languageCode: en-us
 title: Cloudmin — Effortless Virtual Machine Management
 theme: PaperMod
 
+build:
+  noJSConfigInAssets: true
+
 module:
   mounts:
   - source: layouts
@@ -69,6 +72,8 @@ module:
     target: assets/css/chocolat.css
   - source: ../webmin.com/assets/css/extended/custom.css
     target: assets/css/extended/custom.css
+  - source: ../webmin.com/assets/css/extended/install-command.css
+    target: assets/css/extended/install-command.css
   - source: ../webmin.com/assets/js/chocolat.js
     target: assets/js/chocolat.js
   - source: ../webmin.com/assets/js/extended/docs-filetree.js
@@ -85,11 +90,11 @@ module:
     target: assets/js/extended/header-chocolat-docs.js
   - source: ../webmin.com/assets/js/extended/footer.js
     target: assets/js/extended/footer.js
+  - source: ../webmin.com/assets/js/extended/install-command.js
+    target: assets/js/extended/install-command.js
 
   - source: ../virtualmin.com/assets/css/extended/custom_.css
     target: assets/css/extended/custom_.css
-  - source: ../virtualmin.com/assets/js/extended/footer_.js
-    target: assets/js/extended/footer_.js
 
   imports:
   - path: "../../webmin.com/themes/PaperMod"

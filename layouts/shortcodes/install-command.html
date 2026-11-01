@@ -1,0 +1,22 @@
+{{- $local := eq (.Get 0) "local" -}}
+<div class="install-command" data-install-cmd="{{ if $local }}cloudmin-local{{ else }}cloudmin{{ end }}" data-branch="unstable" data-swap="auto" data-tool="curl">
+    <div class="install-command__box">
+        <button type="button" class="install-command__copy" aria-label="Copy install command" title="Copy install command" data-copy-label="copy" data-copied-label="copied!">copy</button>
+        <div class="install-command__scroll">
+            {{- if $local }}
+            <pre class="install-command__command">sudo sh cloudmin-install.sh</pre>
+            {{- else }}
+            <pre class="install-command__command">sudo sh -c "$(curl -fsSL https://download.cloudmin.dev/cloudmin-install.sh)"</pre>
+            {{- end }}
+        </div>
+    </div>
+    <div class="install-command__options" role="group" aria-label="Installation options">
+        <div class="install-command__pair" role="group" aria-label="Swap handling">
+            <button type="button" class="install-command__option" data-group="swap" data-value="auto" aria-pressed="true" title="Let the installer choose a swap size from available memory, existing swap and disk space">Managed <span class="install-command__option-note">swap</span></button>
+            <button type="button" class="install-command__option" data-group="swap" data-value="none" aria-pressed="false" title="Leave swap unchanged">No swap</button>
+        </div>
+        {{- if not $local }}
+        <a class="install-command__docs" href="/docs/installation/automated/#install-script-options" title="Learn about installation script options" aria-label="Installation script options documentation"><i class="wm wm-fw wm-question"></i></a>
+        {{- end }}
+    </div>
+</div>
