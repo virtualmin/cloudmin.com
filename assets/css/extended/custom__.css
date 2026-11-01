@@ -1,15 +1,119 @@
 :root {
-    --header: #ac5820f4;
+    /* Dark navigation in both modes; blues follow the shared Webmin palette */
+    --header: #171a20f4;
     --header-logo: #ffffff;
-    --outline: #9d5800ee;
-    --link: #9d5800;
+    --outline: #043bab99;
+    --link: #043bab;
 }
 
 .dark {
     --header: #0c0c0cec;
-    --header-logo: #b9642b;
-    --outline: #ab530186;
-    --link: #fc6a2bcc;
+    --header-logo: #ffffff;
+    --outline: #1d74ff66;
+    --link: #1d74ff;
+}
+
+/* Pinned navigation: frosted near-black glass. Light mode keeps the tint
+   high and the blur wide, because a white page showing through a dark bar
+   turns into a grey haze below about 90 percent; dark mode can be far more
+   open. A hairline with a brief light sweep finishes the bottom edge. The
+   landing header joins in only once it sticks to the top. */
+html:not(.page-index) body > .header,
+.page-index body > .header.header-sticky {
+    background-color: rgba(8, 9, 12, 0.92);
+    -webkit-backdrop-filter: blur(24px) saturate(140%);
+    backdrop-filter: blur(24px) saturate(140%);
+    box-shadow: 0 8px 24px -14px rgba(0, 0, 0, 0.7);
+}
+
+html:not(.page-index) body.dark > .header,
+.page-index body.dark > .header.header-sticky {
+    background-color: rgba(10, 10, 11, 0.66);
+    -webkit-backdrop-filter: blur(18px) saturate(170%);
+    backdrop-filter: blur(18px) saturate(170%);
+}
+
+/* Without backdrop blur, keep the bar solid so text never shows through */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    html:not(.page-index) body > .header,
+    .page-index body > .header.header-sticky {
+        background-color: #0d0e12;
+    }
+
+    html:not(.page-index) body.dark > .header,
+    .page-index body.dark > .header.header-sticky {
+        background-color: #0b0b0c;
+    }
+}
+
+/* Bottom hairline; an orange light crosses it once after the page loads */
+html:not(.page-index) body > .header::after,
+.page-index body > .header.header-sticky::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(90deg, rgba(255, 138, 60, 0), #ffb07a, rgba(255, 138, 60, 0)),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.08));
+    background-repeat: no-repeat;
+    background-size: 22% 100%, 100% 100%;
+    background-position: -30% 0, 0 0;
+    filter: drop-shadow(0 0 3px rgba(255, 122, 31, 0.85));
+    animation: cloudmin-header-sweep 7s ease-in-out 1s 1;
+}
+
+@keyframes cloudmin-header-sweep {
+    from {
+        background-position: -30% 0, 0 0;
+    }
+
+    to {
+        background-position: 130% 0, 0 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:not(.page-index) body > .header::after,
+    .page-index body > .header.header-sticky::after {
+        animation: none;
+    }
+}
+
+/* Pinned menu labels sit slightly dimmed and brighten on hover */
+html:not(.page-index) body > .header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a,
+.page-index body > .header.header-sticky #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.2s ease;
+}
+
+html:not(.page-index) body > .header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a:hover,
+.page-index body > .header.header-sticky #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a:hover {
+    color: #ffffff;
+}
+
+/* Menu links: a rounded pill marks the hovered item in white and the current
+   section in orange, like Virtualmin's menu, on the dark bar in both modes */
+.header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a > span {
+    border-radius: 5px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a:hover > span,
+.header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a:focus-visible > span {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a > span.active,
+.header #menu > li:not(.menu-item--search):not(.menu-item--dropdown-menu) > a:hover > span.active {
+    background-color: rgba(255, 122, 31, 0.2);
+    box-shadow: inset 0 0 0 1px rgba(255, 122, 31, 0.35);
+    color: #ffffff;
 }
 
 html .main *:focus-visible {
@@ -52,6 +156,31 @@ body:not(.dark) .logo>a>svg>g>g>g>g>g>g>path {
     fill: var(--header) !important;
 }
 
+/* White cloud and wordmark on the dark bar, with only the inner C and m in orange */
+body .logo>a>svg>g:nth-child(1)>g>g:nth-child(2) path {
+    fill: #ff7a1f !important;
+}
+
+/* Landing page bar on a light background: orange cloud with white letters and
+   a dark wordmark, the logo's own colors, instead of an all-dark mark */
+.page-index #top:not(.dark) > .header:not(.header-sticky) .logo>a>svg>g:nth-child(1)>g>g:nth-child(1)>g>path {
+    fill: #ff7a1f !important;
+}
+
+.page-index #top:not(.dark) > .header:not(.header-sticky) .logo>a>svg>g:nth-child(1)>g>g:nth-child(2) path {
+    fill: #ffffff !important;
+}
+
+/* Landing page bar in dark mode: white cloud with orange letters, matching
+   the regular dark navigation bar */
+.page-index #top.dark > .header:not(.header-sticky) .logo>a>svg>g:nth-child(1)>g>g:nth-child(1)>g>path {
+    fill: #ffffff !important;
+}
+
+.page-index #top.dark > .header:not(.header-sticky) .logo>a>svg>g:nth-child(1)>g>g:nth-child(2) path {
+    fill: #ff7a1f !important;
+}
+
 .page-index .index-page-intro-container-inner-content {
     background: linear-gradient(60deg, #914c02 6%, #ac7500 86%);
 }
@@ -60,36 +189,6 @@ body:not(.dark) .logo>a>svg>g>g>g>g>g>g>path {
     background: linear-gradient(60deg, #763d00 6%, #906301 86%);
 }
 
-body #menu>li.menu-item--singin>a .btn {
-    background-color: #ffffff36;
-    border-color: #ffffff86;
-}
-
-body.dark #menu>li.menu-item--singin>a .btn {
-    background-color: #ffffff30;
-    border-color: #ffffff80;
-}
-
-body #menu>li.menu-item--singin>a .btn:hover,
-body #menu>li.menu-item--singin>a .btn:focus {
-    background-color: #ffffff66;
-    border-color: #ffffff99;
-    box-shadow: 0 0 0 3px #ffffff99;
-}
-
-body.dark #menu>li.menu-item--singin>a .btn:hover,
-body.dark #menu>li.menu-item--singin>a .btn:focus {
-    background-color: #ffffff60;
-    border-color: #ffffff93;
-    box-shadow: 0 0 0 3px #ffffff93;
-}
-
-body #menu>li.menu-item--singin>a .btn:active {
-    box-shadow: 0 0 0 3px #ffffff66;
-}
-body.dark #menu>li.menu-item--singin>a .btn:active {
-    box-shadow: 0 0 0 3px #ffffff60;
-}
 /* Keep punctuation next to inline code. Docs tables drop the code
    background, so its padding and margin only left loose gaps. */
 html[class*=page-docs] article.post-single table tr>th code,

@@ -1,0 +1,175 @@
+{{- $edition := lower (printf "%v" (.Param "edition")) }}
+{{- if eq $edition "pro" }}
+<span class="hidden page-edition-marker" data-edition="pro" aria-hidden="true" hidden></span>
+{{- end }}
+<script>
+    (function () {
+        // cloudmin.com has no shop or account area, so the menu never carries
+        // a signed-in state; only the shared status messages are set up here.
+        document.querySelector('#menu').classList.add('menu-unauthenticated');
+        document.documentElement.setAttribute('data-auth', 0);
+
+        // Store messages from site config to be used in CSS
+        window.siteConfig = window.siteConfig || {};
+        window.siteConfig.messages = JSON.parse('{{ .Site.Params.messages | jsonify }}');
+        Object.entries(window.siteConfig.messages).forEach(([key, value]) => {
+            document.documentElement.style.setProperty('--message-' + key, `"${value}"`);
+        });
+    })();
+</script>
+{{ if eq .RelPermalink "/" }}
+<script>
+    (function () {
+        const $this = {};
+        // Sticky header magic
+        const header_sticky_class_str = "header-sticky",
+            menu_active_class_str = "#menu > li > a.dropdown-menu > span.active",
+            scrollFn = function (evt) {
+                // Define direction of scroll
+                $this.currentScroll = window.scrollY || document.documentElement.scrollTop;
+                $this.lastScroll = 2; // down
+                if ($this.currentScroll < $this.lastScrollTop) {
+                    $this.lastScroll = 1; // up
+                }
+                $this.lastScrollTop = $this.currentScroll <= 0 ? 0 : $this.currentScroll;
+
+                // Update header position
+                const hero = document.querySelector(".index-page-intro-container"),
+                    header = document.querySelector(".page-index > body > header"),
+                    headerBounds = header.getBoundingClientRect(),
+                    headerHeight = headerBounds.height;
+
+                // If automatic scrollTo
+                if ($this.scrollToAuto) {
+                    if (window.scrollY <= parseInt(headerBounds.height) || parseInt(window.scrollY + $this.lastScrollTopPosCalc) >= parseInt($this.lastScrollTopPosOffset - $this.lastScrollTopPosCalc)) {
+                        $this.scrollToAuto = null;
+                        setTimeout(function () {
+                            $this.scrollToAuto = false;
+                        }, 180 * 4);
+                    }
+                    return true;
+                }
+
+                // If automatic adjustment scroll is happening
+                if ($this.scrollByAuto) {
+                    if ($this.scrollByAuto++ > 1) {
+                        $this.scrollByAuto = false;
+                    }
+                    return true;
+                }
+
+                // Make adjustments
+                if (
+                    $this.lastScroll === 2 &&
+                    headerBounds.top <= 0 &&
+                    !header.classList.contains(header_sticky_class_str)
+                ) {
+                    $this.scrollByAuto = 1;
+                    header.classList.add(header_sticky_class_str);
+                    window.scrollBy(0, +headerHeight);
+                    window.dispatchEvent(new Event("resize")); // reposition dropdown
+                } else if (
+                    $this.lastScroll === 1 &&
+                    hero.clientHeight - window.scrollY >= 0 &&
+                    header.classList.contains(header_sticky_class_str)
+                ) {
+                    $this.scrollByAuto = 1;
+                    header.classList.remove(header_sticky_class_str);
+                    window.scrollBy(0, -headerHeight);
+                    window.dispatchEvent(new Event("resize")); // reposition dropdown
+                }
+
+                // Wait for scroll to finish completely
+                if (typeof $this.scrollTimeout === "number") {
+                    clearTimeout($this.scrollTimeout);
+                }
+
+                // Stack to call it only once
+                if (!$this.scrollToAuto && $this.scrollToAuto !== null) {
+                    $this.scrollTimeout = setTimeout(function () {
+                        // Trigger only within hero header
+                        if (window.scrollY < window.innerHeight / 2) {
+                            // If dropdown is opened adjust its position (up or down)
+                            if (document.querySelector(menu_active_class_str)) {
+                                window.dispatchEvent(new Event("resize")); // reposition dropdown
+                            }
+                            // Auto scroll (special (needed) implementation of snap scrolling)
+                            if (window.scrollY !== 0) {
+                                if ($this.lastScroll === 1) {
+                                    window.scrollTo({
+                                        top: 0,
+                                        left: 0,
+                                        behavior: 'smooth',
+                                    });
+                                    $this.scrollToAuto = true;
+                                }
+                                else if ($this.lastScroll === 2) {
+                                    $this.lastScrollTopPosOffset = parseInt(hero.clientHeight),
+                                        $this.lastScrollTopPosCalc = parseInt(
+                                            (headerHeight - Math.ceil(devicePixelRatio) -
+                                                (devicePixelRatio < 1 ? Math.ceil(headerHeight / 9.999) : 1)));
+                                }
+                            }
+                        }
+                        clearTimeout($this.scrollTimeout);
+                    }, 180);
+                }
+            };
+        window.addEventListener("scroll", scrollFn, false);
+
+        // Trigger scroll event on initial load
+        window.dispatchEvent(new Event("scroll"));
+
+    })();
+
+    /*
+     * In-hero links to page sections handled without changing URL hash
+     */
+    (function () {
+        const links = document.querySelectorAll(
+            '.index-page-intro-container-inner-content-alien');
+        links.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                const hash = link.hash || link.getAttribute('href');
+                if (!hash || !hash.startsWith('#')) {
+                    return;
+                }
+
+                const id = hash.slice(1),
+                      target = document.getElementById(id);
+                if (!target) return;
+
+                // Stop the browser from changing location hash
+                e.preventDefault();
+                e.stopImmediatePropagation();
+
+                // Jump to target element
+                target.scrollIntoView({
+                    behavior: 'auto',
+                    block: 'start'
+                });
+            });
+        });
+    })();
+
+    // On page load finished for index page only
+    window.addEventListener("load", function () {
+        // On resize event
+        window.addEventListener("resize", function () {
+            // Set the height of the footer
+            const blockSeparatorSelStr = ".index-page-intro-separator-block",
+                leftOffset = document.querySelector(".post-content").getBoundingClientRect().left,
+                documentWidth = document.documentElement.getBoundingClientRect().width,
+                blockSeparators = document.querySelectorAll(blockSeparatorSelStr);
+
+            blockSeparators.forEach((blockSeparator) => {
+                blockSeparator.style.width = documentWidth + "px";
+                blockSeparator.style.marginLeft = -leftOffset + "px";
+            });
+        });
+        // Trigger resize on load
+        window.dispatchEvent(new Event("resize"));
+
+    });
+</script>
+{{ end }}
