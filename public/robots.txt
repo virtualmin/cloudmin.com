@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://www.cloudmin.com/sitemap.xml
