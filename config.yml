@@ -36,6 +36,8 @@ module:
     target: layouts/shortcodes/details-end.html
   - source: ../webmin.com/layouts/_default/_markup/render-image.html
     target: layouts/_default/_markup/render-image.html
+  - source: ../webmin.com/layouts/_default/index.json
+    target: layouts/_default/index.json
   - source: ../webmin.com/layouts/partials/edit_post.html
     target: layouts/partials/edit_post.html
   - source: ../webmin.com/layouts/partials/docs_toc.html
@@ -76,6 +78,8 @@ module:
     target: assets/css/extended/install-command.css
   - source: ../webmin.com/assets/js/chocolat.js
     target: assets/js/chocolat.js
+  - source: ../webmin.com/assets/js/fastsearch.js
+    target: assets/js/fastsearch.js
   - source: ../webmin.com/assets/js/extended/docs-filetree.js
     target: assets/js/extended/docs-filetree.js
   - source: ../webmin.com/assets/js/extended/docs-toc.js
@@ -84,6 +88,8 @@ module:
     target: assets/js/extended/header.js
   - source: ../webmin.com/assets/js/extended/docs-fastsearch.js
     target: assets/js/extended/docs-fastsearch.js
+  - source: ../webmin.com/assets/js/extended/search.js
+    target: assets/js/extended/search.js
   - source: ../webmin.com/assets/js/extended/header-chocolat.js
     target: assets/js/extended/header-chocolat.js
   - source: ../webmin.com/assets/js/extended/header-chocolat-docs.js
@@ -159,15 +165,23 @@ params:
       lineNos: true
       noClasses: false
       style: monokai
-  
+
   fuseOpts:
     isCaseSensitive: false
     shouldSort: true
     location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
+    distance: 100
+    threshold: 0.1
+    minMatchCharLength: 2
+    keys:
+      - name: title
+        weight: 4
+      - name: heading
+        weight: 3
+      - name: summary
+        weight: 2
+      - name: content
+        weight: 1
 
 
 outputs:
