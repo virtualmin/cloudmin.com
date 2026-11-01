@@ -90,3 +90,91 @@ body #menu>li.menu-item--singin>a .btn:active {
 body.dark #menu>li.menu-item--singin>a .btn:active {
     box-shadow: 0 0 0 3px #ffffff60;
 }
+/* Keep punctuation next to inline code. Docs tables drop the code
+   background, so its padding and margin only left loose gaps. */
+html[class*=page-docs] article.post-single table tr>th code,
+html[class*=page-docs] article.post-single table tr>td code {
+    margin: 0;
+    padding: 0;
+}
+
+/* Elsewhere keep the code pill but trim the space outside it */
+.post-content p > code,
+.post-content li > code,
+.post-content td > code {
+    margin: auto 1px;
+}
+
+/* Documentation badges: quiet outlined pills instead of filled colors */
+.post-content .badge.badge-planned,
+.post-content .badge.badge-pro {
+    display: inline-block;
+    margin-left: 0.4em;
+    padding: 0.22em 0.6em;
+    border-radius: 999px;
+    font-size: 0.68em;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    vertical-align: middle;
+    background-color: transparent;
+    border: 1px solid currentColor;
+}
+
+.post-content .badge.badge-planned {
+    color: #7d8698;
+}
+
+.dark .post-content .badge.badge-planned {
+    color: #98a2b5;
+}
+
+.post-content .badge.badge-pro {
+    color: #043bab;
+}
+
+.dark .post-content .badge.badge-pro {
+    color: #4f8ef7;
+}
+
+/* Architecture diagram (how-it-works shortcode): boxes and arrows follow the
+   theme's text, border and code colours, with the API box in orange */
+.post-content .cm-arch {
+    display: block;
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    margin: 1.5em auto;
+    font-family: inherit;
+}
+
+.cm-arch text {
+    fill: var(--content);
+    font-size: 15px;
+    font-weight: 500;
+    text-anchor: middle;
+}
+
+.cm-arch .cm-arch-box {
+    fill: var(--code-bg);
+    stroke: var(--border);
+    stroke-width: 1.2;
+}
+
+.cm-arch .cm-arch-box.is-api {
+    stroke: #ff7a1f;
+    stroke-width: 1.6;
+}
+
+.cm-arch .cm-arch-edges path {
+    fill: none;
+    stroke: var(--secondary);
+    stroke-width: 1.5;
+    marker-end: url(#cmArrow);
+}
+
+.cm-arch marker path {
+    fill: var(--secondary);
+}
+

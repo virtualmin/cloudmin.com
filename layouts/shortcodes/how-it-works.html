@@ -1,0 +1,32 @@
+<!-- Architecture diagram for "What is Cloudmin 10": three callers share one
+     versioned API, which runs the controller layer over libvirt and QEMU/KVM.
+     Colours come from the theme variables in custom__.css. -->
+<svg class="cm-arch" viewBox="0 0 760 450" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="The web UI, the cloudmin command and external clients call one versioned controller API. It applies roles, inventory, jobs, policy and audit, then drives libvirt domains, networks and storage pools on QEMU/KVM.">
+  <defs>
+    <marker id="cmArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z"/>
+    </marker>
+  </defs>
+  <g class="cm-arch-edges">
+    <path d="M120,66 L330,120"/>
+    <path d="M380,66 L380,120"/>
+    <path d="M640,66 L430,120"/>
+    <path d="M380,162 L380,210"/>
+    <path d="M380,252 L380,300"/>
+    <path d="M380,342 L380,390"/>
+  </g>
+  <rect class="cm-arch-box" x="40" y="24" width="160" height="42" rx="8"/>
+  <text x="120" y="50">Web UI</text>
+  <rect class="cm-arch-box" x="300" y="24" width="160" height="42" rx="8"/>
+  <text x="380" y="50">cloudmin CLI</text>
+  <rect class="cm-arch-box" x="560" y="24" width="160" height="42" rx="8"/>
+  <text x="640" y="50">External clients</text>
+  <rect class="cm-arch-box is-api" x="230" y="120" width="300" height="42" rx="8"/>
+  <text x="380" y="146">Versioned controller API</text>
+  <rect class="cm-arch-box" x="180" y="210" width="400" height="42" rx="8"/>
+  <text x="380" y="236">Roles, inventory, jobs, policy, audit</text>
+  <rect class="cm-arch-box" x="180" y="300" width="400" height="42" rx="8"/>
+  <text x="380" y="326">libvirt domains, networks, storage pools</text>
+  <rect class="cm-arch-box" x="300" y="390" width="160" height="42" rx="8"/>
+  <text x="380" y="416">QEMU/KVM</text>
+</svg>
