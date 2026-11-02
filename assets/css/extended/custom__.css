@@ -367,7 +367,7 @@ body .logo>a>svg>g:nth-child(1)>g>g:nth-child(2) path {
    and the colours stay as captured instead of the hue shift the shared
    Virtualmin rule applies to its screenshots. */
 .page-index .chocolat-drop {
-    aspect-ratio: 3418 / 1970;
+    aspect-ratio: 3072 / 1932;
 }
 
 html:not(.chocolat-fullscreen).page-index .chocolat-img {
