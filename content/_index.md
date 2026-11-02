@@ -7,13 +7,13 @@ loadGalleryIndex: true
 ---
 
 {{< html span "" "" cloudmin-intro >}}
-Cloudmin is a virtual machine management panel for Linux hosts. Cloudmin 10 is a rewrite around libvirt, the standard Linux API for managing virtual machines, and supports QEMU/KVM. It runs inside Webmin on your own hardware, keeps every virtual hardware definition in libvirt, and adds the parts libvirt leaves to you: images, templates, jobs, permissions, consoles, snapshots, clones and backups.
+Cloudmin lets you create and run virtual machines on your own Linux server, from your browser. Cloudmin 10 is built on libvirt and QEMU/KVM, the standard virtualization stack on Linux, and runs inside Webmin. Every machine you create is a normal libvirt guest, so nothing is locked in. Cloudmin adds the parts libvirt leaves to you: images, templates, snapshots, clones, backups, consoles, permissions and background jobs.
 
-Install it on a fresh Rocky Linux, AlmaLinux, Debian or Ubuntu host, download a cloud image from the catalogue or bring your own, and create a guest from one form. Cloud images are configured through cloud-init with the account, SSH keys and addressing you choose; installer ISOs boot into a graphical console. Every long operation is a recoverable job with progress, and the risky parts run in isolated workers without root.
+Getting started is simple. Install Cloudmin on a fresh Rocky Linux, AlmaLinux, Debian or Ubuntu host, pick a cloud image from the catalogue or bring your own, and fill in one form. Cloud images come up with the user account, SSH keys and network settings you chose. Installer ISOs boot into a graphical console in your browser. Long tasks run as jobs with progress you can follow, and they can be recovered if something interrupts them. The risky parts run in isolated workers without root.
 
-Cloudmin GPL is free and manages one host with an unlimited number of virtual machines. Cloudmin Pro adds custom guest setup scripts, cloud backup destinations and image capture today, with tenancy planned. Both editions share one core, one API and one command line. Managing many hosts from one place, with placement and live migration, is planned for Cloudmin Connect, a separate product.
+Cloudmin GPL is free and manages one host with as many virtual machines as you like. Cloudmin Pro adds custom guest setup scripts, cloud backup destinations and image capture, with tenancy planned. Both editions share the same core, API and command line. Managing many hosts from one place, including live migration, is planned for Cloudmin Connect, a separate product.
 
-If you run Virtualmin, Cloudmin is the quickest way to get more of it: choose a Virtualmin GPL or Pro template and the hosting stack installs inside the new guest, with progress on the host and the guest's Webmin reachable through it, even behind NAT.
+Already running Virtualmin? Choose a Virtualmin GPL or Pro template and the whole hosting stack installs inside the new guest. You can follow the progress from the host and reach the guest's Webmin through it, even behind NAT.
 
 {{< html div chocolat-drop >}}
 
