@@ -2,7 +2,7 @@
 title: "How to Create a Virtual Machine"
 date: 2026-10-28
 author: "Ilia Ross"
-weight: 2110000
+weight: 1040000
 ---
 
 This guide walks through creating a KVM virtual machine from a cloud image on a freshly installed Cloudmin host.

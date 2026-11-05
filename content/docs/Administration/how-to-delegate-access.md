@@ -2,7 +2,7 @@
 title: "How to Delegate Access"
 date: 2026-10-28
 author: "Ilia Ross"
-weight: 2120000
+weight: 2751000
 ---
 
 Cloudmin uses Webmin users and module permissions. A host administrator sees and manages everything; a delegated user sees only the virtual machines assigned to them, with the actions you grant.

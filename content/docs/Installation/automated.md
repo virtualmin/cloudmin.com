@@ -3,7 +3,7 @@ title: "Automated Installation"
 date: 2026-10-28
 author: "Ilia Ross"
 draft: false
-weight: 2010000
+weight: 2030000
 ---
 
 ### Recommended host specifications

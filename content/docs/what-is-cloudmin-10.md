@@ -2,7 +2,7 @@
 title: "What Is Cloudmin 10"
 date: 2026-10-28
 author: "Ilia Ross"
-weight: 2100000
+weight: 700000
 ---
 
 Cloudmin 10 is a rewrite of Cloudmin around libvirt, the standard Linux API for managing virtual machines. It supports QEMU/KVM and runs as a module inside Webmin, using Webmin's authentication, navigation, permissions and UI widgets.

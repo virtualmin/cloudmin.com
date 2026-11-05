@@ -1,7 +1,7 @@
 ---
 title: "License Manager"
 date: 2026-10-31
-weight: 1040000
+weight: 2752000
 ---
 
 Open **System → Settings → License Manager** to view, recheck, replace or deregister a Cloudmin Pro license. GPL does not require a license. Host administrators can change licenses; read-only users can view their status.

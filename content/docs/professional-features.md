@@ -2,7 +2,7 @@
 title: "Professional Features"
 date: 2026-10-29
 author: "Ilia Ross"
-weight: 910000
+weight: 900000
 ---
 
 Cloudmin GPL manages the host it runs on, with an unlimited number of virtual machines. Cloudmin Pro adds features for that host. Cloudmin Connect GPL and Pro are separate planned products for managing a fleet of Cloudmin hosts.
