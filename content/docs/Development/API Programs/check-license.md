@@ -1,7 +1,7 @@
 ---
 title: "check-license"
 date: 2026-10-31
-weight: 2849020
+weight: 2850020
 ---
 
 ### Rechecks the Cloudmin license with the license server

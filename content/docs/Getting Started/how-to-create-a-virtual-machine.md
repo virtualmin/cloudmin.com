@@ -22,6 +22,8 @@ Log in to Webmin as a host administrator and open **Cloudmin**. The overview sho
 3. **Set the login**  
    Supply the initial password or SSH public keys required by the selected login method. Cloud images configure the account through cloud-init. By default Cloudmin also creates a separate host-managed SSH key for the browser terminal; Module Configuration controls this.
 
+   In Cloudmin Pro, **Add saved key** inserts a public key from the [SSH Keys library](/docs/remote-access/ssh-keys/). Keys marked **Automatic** are already included and cannot be selected again. Password login stays enabled when selected. GPL accepts pasted public keys without the library.
+
 4. **Review the summary**  
    A summary below the selectors shows the image, any download still needed, CPU, memory, disk size, network, addressing mode and software. It updates when you change a preset or edit a field.
 

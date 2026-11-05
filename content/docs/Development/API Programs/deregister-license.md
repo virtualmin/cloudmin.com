@@ -1,7 +1,7 @@
 ---
 title: "deregister-license"
 date: 2026-11-01
-weight: 2849040
+weight: 2850040
 ---
 
 ### Removes this host's Cloudmin license

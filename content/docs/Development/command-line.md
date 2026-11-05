@@ -93,6 +93,17 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [confirm-bridge](/docs/development/api-programs/confirm-bridge/): Keeps the new network settings after checking connectivity.
 - [rollback-bridge](/docs/development/api-programs/rollback-bridge/): Requests recovery of the previous network settings.
 
+### SSH keys
+
+- [list-ssh-keys](/docs/development/api-programs/list-ssh-keys/): Lists saved SSH keys (Pro).
+- [create-ssh-key](/docs/development/api-programs/create-ssh-key/): Generates or imports an SSH key (Pro).
+- [modify-ssh-key](/docs/development/api-programs/modify-ssh-key/): Changes the name or automatic setting of a saved key (Pro).
+- [download-ssh-key](/docs/development/api-programs/download-ssh-key/): Writes a generated private key to standard output (Pro).
+- [delete-ssh-key](/docs/development/api-programs/delete-ssh-key/): Deletes a library entry without changing guests (Pro).
+- [list-system-keys](/docs/development/api-programs/list-system-keys/): Lists an existing guest account's SSH keys (Pro).
+- [add-system-key](/docs/development/api-programs/add-system-key/): Adds public keys to an existing guest account (Pro).
+- [remove-system-key](/docs/development/api-programs/remove-system-key/): Removes one guest SSH key (Pro).
+
 ### License Manager
 
 - [get-license](/docs/development/api-programs/get-license/): Shows the Cloudmin license status.

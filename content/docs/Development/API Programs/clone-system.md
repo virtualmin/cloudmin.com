@@ -35,6 +35,7 @@ cloudmin clone-system [--multiline | --json]
                       [--plan ID|name]
                       [--pool ID|name]
                       [--require-fqdn | --no-require-fqdn]
+                      [--saved-key value]*
                       [--shutdown]
                       [--ssh-key value]*
                       [--ssh-keys-file file|-]
@@ -50,6 +51,8 @@ Select the source with `--name` or `--id`, and give the destination an unused `-
 - Prepared and unchanged copies
 
 The default `--mode prepared` configures a new guest identity, hostname, network and administrator access before boot. It requires one inspectable Linux installation, enabled cloud-init and one network interface. Supply the new login settings with `--username`, `--auth-type` and the password or public-key file options.
+
+On Pro hosts, `--saved-key KEY_ID` and automatic library keys apply to prepared clones as they do to `create-system`. Unchanged clones reject `--saved-key` and skip automatic keys.
 
 `--mode unchanged` retains guest settings and login credentials, but still resets the host ID and removes copied Virtualmin Pro credentials. It requires `--confirm-unchanged` and must remain stopped with automatic startup disabled. Review its network and access settings before starting it alongside the source.
 
@@ -108,6 +111,7 @@ Options:
 - `--plan ID|name`: Plan ID or name.
 - `--pool ID|name`: Destination storage pool ID or name.
 - `--require-fqdn | --no-require-fqdn`: Require a fully qualified hostname.
+- `--saved-key value`: Saved SSH key ID (Pro); repeat for more keys.
 - `--shutdown`: Cleanly stop the source while copying and restart it afterward.
 - `--ssh-key value`: SSH public key; repeat for more keys.
 - `--ssh-keys-file file|-`: File containing SSH public keys.

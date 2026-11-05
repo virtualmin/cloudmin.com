@@ -1,7 +1,7 @@
 ---
 title: "change-license"
 date: 2026-10-31
-weight: 2849030
+weight: 2850030
 ---
 
 ### Validates and saves a Cloudmin Pro license

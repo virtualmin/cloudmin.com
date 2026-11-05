@@ -5,7 +5,7 @@ author: "Ilia Ross"
 weight: 2810000
 ---
 
-The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore and host storage. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
+The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore, host storage and Pro SSH key management. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
 
 ### Requests and responses
 
@@ -32,6 +32,22 @@ HTTP clients must pass Webmin's referer check: send a `Referer` from the same We
 
 Passwords and license credentials are removed from input before anything is logged or rendered. Review stores a password hash privately for one day, bound to the token, attempt ID, Webmin user and initial username, so a following `create` can omit `password`. Responses never contain passwords or hashes.
 
+### SSH keys (Pro)
+
+Saved-key and guest-key actions require Cloudmin Pro and host administrator access. They complete synchronously. `ssh_keys` and `guest_ssh_keys` allow GET without a token; changes and private-key downloads require manage access, POST, a signed token and a writable session.
+
+| Action | Purpose |
+| --- | --- |
+| `ssh_keys` | List saved public keys, or read one with `key` |
+| `save_ssh_key` | Generate or import a key; supply `key` and `revision` to edit its name or automatic setting |
+| `delete_ssh_key` | Delete a library entry using `key`, `revision` and `confirm=1` |
+| `download_ssh_key` | Return a generated private key in the `private` field; imported private keys are not retained |
+| `guest_ssh_keys` | List an existing account's keys using the virtual machine `id` and `username` |
+| `add_guest_ssh_key` | Add a saved `key` or `public` key text to that account |
+| `remove_guest_ssh_key` | Remove a guest entry using `id`, `username`, the guest `key` ID, `revision` and `confirm=1` |
+
+Guest operations require a running virtual machine and an agent that supports SSH key commands. A guest key ID comes from `guest_ssh_keys` and differs from a saved library key ID. Ordinary lists never return private keys. See [SSH Keys](/docs/remote-access/ssh-keys/) for the web interface and CLI.
+
 ### Host license
 
 `license` returns public license status and accepts GET without a token. `check_license` refreshes it; `change_license` takes `serial` and `license_key`; `deregister_license` removes saved license and repository credentials and requires `confirm=1`. All license actions require host access. Writes also require POST, a signed token and a writable session. These repair actions remain available when licensing blocks new changes. See [License Manager](/docs/getting-started/license-manager/) for grace periods and the operations that continue after expiry.
@@ -53,6 +69,8 @@ API pool selectors are UUIDs; volume selectors are exact names within a pool. CL
 
 A creation request names the virtual machine and selects an `image` or catalogue entry, `install_source` (`cloud` or `iso`), `pool`, `network`, `cpus`, `memory_mib`, `disk_gib`, the initial `username`, `auth_type` (`password`, `keys` or `both`) with `password` or `ssh_keys`, `address_mode` (`dhcp` or `static`) with `ipv4`, `ipv6`, `gateway4`, `gateway6` and `dns`, `firmware`, `start`, `autostart`, an optional `hostname` and `mac`, and a `template` and `plan`. Software fields are `software` (`none`, `virtualmin-gpl` or `virtualmin-pro`), `virtualmin_bundle`, `virtualmin_type`, `virtualmin_postgres`, `virtualmin_ssl`, `webmin_register`, `packages`, and the before and after scripts with their modes and paths. Pro creations also take `virtualmin_serial` and `virtualmin_key` on each request.
 
+Both GPL and Pro accept public text in `ssh_keys`. Pro also accepts `saved_ssh_keys`, a comma-separated list of library IDs, and merges automatic keys into cloud-image and prepared-clone requests. Password authentication stays enabled when selected. ISO installs and unchanged clones reject explicit saved-key selections and skip automatic keys.
+
 ### Jobs
 
 Creation, cloning, backups, restores, captures and hardware changes return a job immediately. A job record carries its state, phase, events, error, cleanup status and, for Virtualmin installations, the URL to open when it completes. Jobs reserve the resources they touch, can be cancelled at safe points, and recover after a controller restart. Job records never expose private request fields.
@@ -62,6 +80,8 @@ Creation, cloning, backups, restores, captures and hardware changes return a job
 Run `cloudmin` as root on the Cloudmin host. Commands such as `cloudmin list-systems`, `cloudmin create-system` and `cloudmin backup-systems` share the API's validation and recovery. Lists use tables by default; add `--multiline` for details or `--json` for scripts. Jobs are followed unless `--no-wait` is supplied.
 
 See the [command-line reference](/docs/development/command-line/) for all commands and examples, or run `cloudmin help COMMAND`. The raw JSON entry points remain available as `api.pl` and `cloudmin api ACTION`.
+
+SSH key management commands appear in GPL help with `(Pro)` in their descriptions, but execution fails with `SSH key management requires Cloudmin Pro`. GPL can still use `--ssh-key` or `--ssh-keys-file` when creating virtual machines; `--saved-key` requires Pro.
 
 ### Planned
 
