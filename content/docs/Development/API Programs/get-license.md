@@ -2,7 +2,7 @@
 title: "get-license"
 subSection: "License Manager"
 date: 2026-10-31
-weight: 2849010
+weight: 2850010
 ---
 
 ### Shows the Cloudmin license status

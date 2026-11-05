@@ -23,11 +23,19 @@ GPL and Pro share the same API, libvirt adapter and UI. Pro implementations inst
 
 {{< pro >}} Capture an existing Linux guest's virtio system disk as a standalone QCOW2 image, using live snapshot or clean-shutdown preparation. New machines receive fresh identities and login settings. Importing and using existing images remain in GPL. See [Creating images from virtual machines](/docs/images/creating-images-from-virtual-machines/).
 
+#### SSH key management {#ssh-keys}
+
+{{< pro >}} Save reusable public keys, generate key pairs, import public or unencrypted private keys, and add keys automatically to new virtual machines. Manage an existing guest account's authorized keys through the QEMU Guest Agent. The web interface, CLI and API support both the saved-key library and guest key management. See [SSH Keys](/docs/remote-access/ssh-keys/).
+
+GPL still accepts public keys when creating virtual machines and in templates. Its browser SSH terminal and host-managed login keys also remain available.
+
 Everything else currently implemented remains in GPL, including ordinary Webmin permissions, per-machine grants, read-only access, consoles, networking, storage, snapshots, clones, CLI and API access. Virtualmin Pro guest templates do not require Cloudmin Pro.
 
 ### Pro previews in GPL
 
 GPL shows Pro controls in context, disabled and marked with a Pro badge. **Module Configuration → Host connection and overview → Show Pro features overview?** can hide these previews. Hiding advertising does not change permissions or unlock features; the server also refuses Pro operations without the package.
+
+SSH key CLI commands remain visible in GPL help, marked `(Pro)`. Running them returns `SSH key management requires Cloudmin Pro`; hiding web previews does not hide CLI commands. GPL accepts `--ssh-key` and `--ssh-keys-file` during creation, but `--saved-key` requires Pro.
 
 Templates saved with scripts remain readable after Pro is removed. Their script controls become read-only, and creation refuses those scripts. An administrator can explicitly clear both saved scripts when editing the template. Other template edits preserve them.
 
@@ -38,7 +46,7 @@ All Connect features below are {{< planned >}}. They are not available in the cu
 | Product | Scope | Features |
 | --- | --- | --- |
 | Cloudmin GPL | One host, unlimited virtual machines | Existing host management, packages, Virtualmin installation, backups and Webmin access grants |
-| Cloudmin Pro | One host | Custom scripts, cloud backup providers and image capture; projects, quotas, self-service creation, usage tracking and automation credentials {{< planned >}} |
+| Cloudmin Pro | One host | SSH key management, custom scripts, cloud backup providers and image capture; projects, quotas, self-service creation, usage tracking and automation credentials {{< planned >}} |
 | Cloudmin Connect GPL | A fleet, with host and fleet VM limits to be decided | Host registration, combined inventory and search, consoles, terminals, basic resource views, safe cold moves and host backup/restore actions {{< planned >}} |
 | Cloudmin Connect Pro | Fleet operations | Live migration, evacuation, placement, failover, controller availability, disaster recovery, fleet policy and automation {{< planned >}} |
 

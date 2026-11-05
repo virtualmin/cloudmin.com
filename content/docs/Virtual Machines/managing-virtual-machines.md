@@ -39,7 +39,11 @@ Add, change or remove NICs on a stopped guest, choosing a libvirt network or a h
 
 ### Guest password reset
 
-**Reset Password** on **Edit Virtual Machine** changes an existing guest account through the QEMU Guest Agent. The form is always available to permitted users; saving requires a running virtual machine with a responding agent. Passwords are not stored in jobs or logs, and SSH authentication settings stay unchanged.
+**Edit Virtual Machine → Access → Password** changes an existing guest account's password through the QEMU Guest Agent. The form is always available to permitted users; saving requires a running virtual machine with a responding agent. Passwords are not stored in jobs or logs, and SSH authentication settings stay unchanged.
+
+### Guest SSH keys (Pro)
+
+In Cloudmin Pro, **Access → SSH Keys** lists, adds and removes authorized keys for an existing guest account. An account created with only a password can receive keys later. The virtual machine must be running, and its guest agent must support SSH key commands. Other keys and open sessions stay unchanged. See [SSH Keys](/docs/remote-access/ssh-keys/) for requirements and CLI examples. {{< pro >}}
 
 ### Snapshots, clones, backups and images
 

@@ -43,6 +43,7 @@ cloudmin create-system [--multiline | --json]
                        [--pool ID|name]
                        [--require-fqdn | --no-require-fqdn]
                        [--review]
+                       [--saved-key value]*
                        [--software none|virtualmin-gpl|virtualmin-pro]
                        [--ssh-key value]*
                        [--ssh-keys-file file|-]
@@ -58,6 +59,8 @@ cloudmin create-system [--multiline | --json]
 
 
 Creates a new virtual machine named by `--name`. This name must be unused on the host. The operation runs as a background job; by default the command waits for creation and any selected software setup to finish. `--no-wait` returns the job ID instead.
+
+On Pro hosts, use `--saved-key KEY_ID` to select a library key; repeat it for more keys. Keys marked automatic are also added to virtual machines created from cloud images. ISO installs reject `--saved-key` and skip automatic keys.
 
 
 - Image, storage and resources
@@ -145,6 +148,7 @@ Options:
 - `--pool ID|name`: Destination storage pool ID or name.
 - `--require-fqdn | --no-require-fqdn`: Require a fully qualified hostname.
 - `--review`: Validate without creating.
+- `--saved-key value`: Saved SSH key ID (Pro); repeat for more keys.
 - `--software none|virtualmin-gpl|virtualmin-pro`: Software to install.
 - `--ssh-key value`: SSH public key; repeat for more keys.
 - `--ssh-keys-file file|-`: File containing SSH public keys.

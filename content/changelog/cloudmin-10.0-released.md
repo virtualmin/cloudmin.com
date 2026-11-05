@@ -21,6 +21,7 @@ Cloudmin 10.0 is a rewrite of Cloudmin around libvirt. It supports QEMU/KVM and 
 * Add live CPU and balloon memory adjustment, offline resource maximums, boot settings, disk and network interface changes, disk growth, and live ISO insertion and ejection
 * Add pause, resume, confirmed hard reset, autostart control and virtual machine deletion with explicit disk selection, shared-storage checks and recovery of interrupted operations
 * Add guest password reset through the QEMU Guest Agent with its own permission and no password stored in jobs or logs
+* Add a saved SSH key library, automatic keys for new virtual machines, and guest authorized-key management through the web interface, CLI and API in Cloudmin Pro
 * Add disk snapshots with creation, restore, deletion, per-machine history, a host overview, guest-agent preparation and an optional clean shutdown
 * Add full cloning from stopped or running guests with fresh identities, Virtualmin hostname and management certificate updates, Pro license placeholders, and unchanged copies left stopped
 * Add full backups and restore with hourly to yearly schedules and retention, to local, SSH and S3 destinations, with Google Cloud Storage, Azure Blob Storage, Backblaze B2, Dropbox and Google Drive destinations in Cloudmin Pro

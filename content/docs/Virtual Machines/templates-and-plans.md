@@ -26,6 +26,8 @@ All presets can be edited or copied. Default Template and Default Plan cannot be
 - **Software**: packages and Virtualmin installation options, including whether to add the guest to the host's Webmin Servers Index. Preparation and final setup scripts require Cloudmin Pro. {{< pro >}}
 - **Boot options**: firmware, whether to start after creation and autostart.
 
+Public keys in templates work in both GPL and Pro. In Pro, **Add saved key** copies a library key's public text into the template. Later library edits or deletion do not change that copy. Keys marked **Automatic** are added when creating a virtual machine from a cloud image or a prepared clone, so they cannot be selected again in the dropdown. See [SSH Keys](/docs/remote-access/ssh-keys/).
+
 Scripts can be disabled, entered directly or read from a host file. Host file access follows Webmin's global file permissions and configured Unix user. Templates store the paths; creation jobs copy the contents before allocating resources, and scripts run only inside the guest.
 
 ### Descriptions and names

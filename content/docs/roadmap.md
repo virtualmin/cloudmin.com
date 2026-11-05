@@ -33,6 +33,8 @@ Cloudmin 10 is developed in the open and is not released yet. This page lists wh
 - Full backups and restore with hourly to yearly schedules and retention, to local, SSH and S3 destinations, plus cloud destinations in Pro.
 
 #### Access
+
+- [Saved SSH keys and guest authorized-key management](/docs/remote-access/ssh-keys/) through the web interface, CLI and API in Cloudmin Pro. Public keys during creation remain available in GPL. {{< pro >}}
 - Browser SSH terminals with pinned host keys, host-managed per-guest keys, remembered ports and optional automatic connection.
 - Serial consoles with recorded output replay and graphical VNC consoles that work during boot.
 - Guest Webmin through the host's Servers Index proxy for Virtualmin guests behind NAT, root-only and behind a trust warning.

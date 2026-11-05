@@ -23,6 +23,8 @@ Turn on **Connect automatically when opening the SSH tab?** in Module Configurat
 
 By default, new virtual machines receive a separate host login key, added to the initial guest account through cloud-init. Module Configuration controls key creation and the terminal's default authentication method; existing virtual machines are unchanged. Private keys stay in `vm-ssh-keys` under Cloudmin's private module data directory with mode 0600, the terminal receives only its selected virtual machine's key through systemd credentials, and the key is removed on creation rollback or when Cloudmin deletes the guest through its libvirt adapter. Deleting a guest with external tools does not run this cleanup; remove its saved key separately. These preferences do not add fields to the creation form.
 
+Host-managed terminal keys are available in both GPL and Pro. The separate [SSH Keys library and guest key editor](/docs/remote-access/ssh-keys/) require Cloudmin Pro.
+
 ### How it runs
 
 The browser relay and the SSH client run without root on the host, inside a systemd unit with a temporary user, no capabilities and no access to Webmin's credential files. A root supervisor authorizes each connection, rechecks the session's terminal permission every five seconds and stops the SSH process when you leave the page or the permission is revoked. Read-only Webmin accounts cannot open terminals.
