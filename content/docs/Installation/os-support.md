@@ -3,7 +3,7 @@ title: "OS Support"
 date: 2026-10-28
 author: "Ilia Ross"
 draft: false
-weight: 900000
+weight: 2010000
 ---
 
 Cloudmin runs on top of Webmin and manages virtual machines through libvirt, so it needs a Linux host with KVM, systemd and the distribution's libvirt and QEMU packages. The automated installer and the host configuration are tested on a small set of current systems.

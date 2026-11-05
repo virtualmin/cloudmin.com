@@ -2,7 +2,7 @@
 title: "Feature Status and Roadmap"
 date: 2026-10-28
 author: "Ilia Ross"
-weight: 920000
+weight: 950000
 ---
 
 Cloudmin 10 is developed in the open and is not released yet. This page lists what works today and what is still planned, so the rest of the documentation can be read in context. Items marked {{< planned >}} are design targets, not available features.
