@@ -5,7 +5,7 @@ author: "Ilia Ross"
 weight: 2410000
 ---
 
-Open **Remote Access → SSH terminal** on a running virtual machine to connect from your browser using its host-managed key or a guest password. The terminal requires Webmin's Terminal module, `Net::WebSocket::Server`, OpenSSH, Python 3 and systemd with `systemd-run`.
+Open **Remote Access → SSH terminal** on a running virtual machine to connect from your browser using its host-managed key or a guest password. The terminal requires Webmin's Terminal module, OpenSSH, Python 3 and systemd with `systemd-run`.
 
 ### Connecting
 

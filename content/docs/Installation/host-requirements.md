@@ -23,8 +23,8 @@ The installer satisfies these requirements on a supported host. This page explai
 | Custom cloud image inspection | libguestfs and its Perl bindings, YAML::XS |
 | Cloning and prepared clones | libguestfs, its Perl bindings, bsdtar, YAML::XS; access to `/dev/kvm` through the `kvm` group and the running kernel and modules for the appliance |
 | Image capture (Pro) | libguestfs, its Perl bindings, YAML::XS 0.69 or later, bsdtar |
-| SSH terminal | Webmin's Terminal module, `Net::WebSocket::Server`, OpenSSH, Python 3 |
-| Graphical and serial consoles | Webmin's Terminal module, `Net::WebSocket::Server`, Python 3; a VNC display for the graphical console |
+| SSH terminal | Webmin's Terminal module, OpenSSH, Python 3 |
+| Graphical and serial consoles | Webmin's Terminal module, Python 3; a VNC display for the graphical console |
 | Serial output recording | `virtlogd` with `stdio_handler = "logd"`, a positive `max_size` and 1–32 backups |
 | Host bridges on ifupdown | `bridge-utils` |
 | Backup archives | `qemu-img`, Python 3 |
