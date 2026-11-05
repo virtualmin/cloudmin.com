@@ -389,9 +389,8 @@ html[class*=page-docs] article.post-single table tr>td code {
     margin: auto 1px;
 }
 
-/* Documentation badges: quiet outlined pills instead of filled colors */
-.post-content .badge.badge-planned,
-.post-content .badge.badge-pro {
+/* Planned features use a quiet outlined badge. */
+.post-content .badge.badge-planned {
     display: inline-block;
     margin-left: 0.4em;
     padding: 0.22em 0.6em;
@@ -414,12 +413,9 @@ html[class*=page-docs] article.post-single table tr>td code {
     color: #98a2b5;
 }
 
-.post-content .badge.badge-pro {
-    color: #043bab;
-}
-
-.dark .post-content .badge.badge-pro {
-    color: #4f8ef7;
+/* Inline Pro badges share the title badge style without its outer margins. */
+.post-content .badge-pro {
+    margin: 0;
 }
 
 /* Architecture diagram (how-it-works shortcode): boxes and arrows follow the
