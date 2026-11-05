@@ -5,7 +5,7 @@ author: "Ilia Ross"
 weight: 2420000
 ---
 
-The serial and graphical consoles reach a local virtual machine without a guest network, SSH service or guest agent. Both require the virtual machine's console permission, a local libvirt connection, Webmin's Terminal module, `Net::WebSocket::Server`, Python 3 and systemd with `systemd-run`.
+The serial and graphical consoles reach a local virtual machine without a guest network, SSH service or guest agent. Both require the virtual machine's console permission, a local libvirt connection, Webmin's Terminal module, Python 3 and systemd with `systemd-run`.
 
 ### Graphical console
 
