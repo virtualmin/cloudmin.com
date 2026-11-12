@@ -45,6 +45,11 @@ Cloudmin 10 is developed in the open and is not released yet. This page lists wh
 - NAT, routed and isolated virtual networks, and guided host bridge creation through NetworkManager, Netplan or ifupdown with connectivity confirmation and automatic rollback.
 - Storage pool and volume inventory; directory, filesystem and NFS pools for creation, cloning, backups and imports; registered LVM volume groups and thin pools for creation, cloning, backups, restore and native snapshots, with raw guest disks.
 
+#### Notifications
+- [Host and guest alerts](/docs/notifications/overview/) for CPU, memory, filesystems, storage pools, load, transfer rates, guest power, agent availability, collector health and failed jobs, included in GPL and Pro.
+- Email, JSON webhooks, Slack, Discord, Teams Workflows, ntfy, Telegram, Pushover and Gotify destinations, with test messages and delivery history.
+- Configurable thresholds, durations, minimum gaps, reminders and recovery messages; automatic pauses during planned guest operations; persistent delivery queues and retries. Rules, destinations and history are available through the web interface, API and CLI.
+
 #### Platform
 - Durable jobs with reservations, progress, cancellation and recovery after a controller restart.
 - One versioned JSON API shared by the UI, the `api.pl` command line and remote clients.

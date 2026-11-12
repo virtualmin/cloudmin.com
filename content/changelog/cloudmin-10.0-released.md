@@ -38,6 +38,9 @@ Cloudmin 10.0 is a rewrite of Cloudmin around libvirt. It supports QEMU/KVM and 
 * Add durable jobs with resource reservations, progress, cancellation at safe points and recovery after a controller restart for creation, cloning, backups, restores, captures and hardware changes
 * Add isolated systemd workers without root privileges for downloads, host-file reads, checksum checks, disk inspection, SSH key validation, cloud-init seeds, consoles and terminal relays
 * Add Module Configuration options for list columns, initially expanded sections, remembered Remote Access tabs, automatic SSH connection and the Webmin connection warning
+* Add host and guest [notifications](/docs/notifications/overview/) in GPL and Pro for resource use, guest health, collector problems and failed jobs
+* Add email, JSON webhook, Slack, Discord, Teams Workflows, ntfy, Telegram, Pushover and Gotify delivery with configurable thresholds, durations, reminders, recovery messages and automatic pauses for planned guest operations
+* Add persistent notification queues with delivery retries, test messages, per-guest history and rule and destination management through the web interface, API and CLI
 * Add compatibility wrappers so frame-based themes and older Cloudmin function names keep working
 * Change Virtualmin fleet management to move out of Cloudmin; Cloudmin Services is not carried forward and the optional Virtualmin Connect module is planned to replace it
 * Remove Xen, OpenVZ, LXC, VServer, Zones, Docker, Citrix, EC2, GCE and other provider screens; Xen returns through libvirt after the KVM release, and Cloudmin 9 remains maintained for Xen users

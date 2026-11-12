@@ -104,6 +104,19 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [add-system-key](/docs/development/api-programs/add-system-key/): Adds public keys to an existing guest account (Pro).
 - [remove-system-key](/docs/development/api-programs/remove-system-key/): Removes one guest SSH key (Pro).
 
+### Notifications
+
+- [get-notifications](/docs/development/api-programs/get-notifications/): Lists notification events.
+- [get-notification-config](/docs/development/api-programs/get-notification-config/): Shows notification rules, destinations and worker status.
+- [save-notification-target](/docs/development/api-programs/save-notification-target/): Saves a notification target from a JSON object.
+- [delete-notification-target](/docs/development/api-programs/delete-notification-target/): Deletes a notification target.
+- [set-notification-target-enabled](/docs/development/api-programs/set-notification-target-enabled/): Enables or disables a notification target.
+- [save-notification-rule](/docs/development/api-programs/save-notification-rule/): Saves a notification rule from a JSON object.
+- [delete-notification-rule](/docs/development/api-programs/delete-notification-rule/): Deletes a notification rule.
+- [set-notification-rule-enabled](/docs/development/api-programs/set-notification-rule-enabled/): Enables or disables a notification rule.
+- [retry-notification](/docs/development/api-programs/retry-notification/): Retries failed deliveries for one event.
+- [test-notification-target](/docs/development/api-programs/test-notification-target/): Queues a test notification for the next delivery run.
+
 ### License Manager
 
 - [get-license](/docs/development/api-programs/get-license/): Shows the Cloudmin license status.

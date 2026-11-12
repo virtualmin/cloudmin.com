@@ -29,7 +29,7 @@ GPL and Pro share the same API, libvirt adapter and UI. Pro implementations inst
 
 GPL still accepts public keys when creating virtual machines and in templates. Its browser SSH terminal and host-managed login keys also remain available.
 
-Everything else currently implemented remains in GPL, including ordinary Webmin permissions, per-machine grants, read-only access, consoles, networking, storage, snapshots, clones, CLI and API access. Virtualmin Pro guest templates do not require Cloudmin Pro.
+Everything else currently implemented remains in GPL, including ordinary Webmin permissions, per-machine grants, read-only access, consoles, networking, storage, snapshots, clones, [host and guest notifications](/docs/notifications/overview/), CLI and API access. Virtualmin Pro guest templates do not require Cloudmin Pro.
 
 ### Pro previews in GPL
 

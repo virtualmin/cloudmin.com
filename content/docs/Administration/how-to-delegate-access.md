@@ -23,11 +23,12 @@ Granting the Cloudmin module to a Webmin user gives host administrator access by
    - the SSH terminal;
    - guest password resets through the guest agent.
 
-Assignment alone allows viewing details and live status. Changes and connections need their explicit grants, and Webmin's read-only mode blocks them even when granted. Webmin's safe and negative permission defaults grant no virtual machine access.
+Assignment alone allows viewing details, live status and notification history for those guests. Changes and connections need their explicit grants, and Webmin's read-only mode blocks them even when granted. Webmin's safe and negative permission defaults grant no virtual machine access.
 
 ### What delegated users get
 
 - The virtual machine details page with power state, guest agent, SSH reachability, addresses, disks, filesystems and transfer rates
+- [Notification history](/docs/notifications/history-and-delivery/) for assigned guests, without destinations or delivery results; changing rules or destinations requires host and management access
 - The permitted power controls and Remote Access tabs
 - The password reset form, which requires a running guest with a responding QEMU Guest Agent and never stores the password
 - The same actions through the API with their own token, limited to their assigned UUIDs

@@ -23,7 +23,7 @@ The goal is simple: install Cloudmin on a supported Linux system, choose or supp
 
 {{< how-it-works >}}
 
-The Cloudmin backend runs within Webmin. Virtual machine creation, power controls and management use a versioned API shared by the UI, the command line and external clients. Long operations such as image imports, creation, cloning, backups and restores run as background jobs with progress, resource reservations, cancellation at safe points and recovery after a restart. A small SQLite database holds only these job records and short-lived password hashes; everything else keeps Webmin's file-based configuration and audit log.
+The Cloudmin backend runs within Webmin. Virtual machine creation, power controls and management use a versioned API shared by the UI, the command line and external clients. Long operations such as image imports, creation, cloning, backups and restores run as background jobs with progress, resource reservations, cancellation at safe points and recovery after a restart. SQLite stores job records, short-lived password hashes, resource history and notification state. Other settings use Webmin's file-based configuration and audit log.
 
 Downloads, host-file reads, checksum checks, disk inspection, SSH key validation, cloud-init seed generation, consoles and terminal relays run as separate processes without root privileges, each in a systemd unit with a temporary user ID. See [Privilege separation](/docs/development/privilege-separation/).
 
@@ -38,6 +38,7 @@ Downloads, host-file reads, checksum checks, disk inspection, SSH key validation
 - NAT, routed and isolated networks and guided host bridges
 - Storage pools on directories, NFS and LVM volume groups, with volume inventory
 - Delegated access per virtual machine and live status in the browser
+- [Notifications](/docs/notifications/overview/) for resource use, guest health and failed jobs, with nine delivery methods in GPL and Pro
 
 See the [feature status](/docs/roadmap/) page for what is planned, including Cloudmin Connect for multiple hosts, Cloudmin 9 import and Xen.
 

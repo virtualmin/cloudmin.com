@@ -5,7 +5,7 @@ author: "Ilia Ross"
 weight: 2810000
 ---
 
-The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore, host storage and Pro SSH key management. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
+The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore, host storage, notifications and Pro SSH key management. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
 
 ### Requests and responses
 
@@ -47,6 +47,23 @@ Saved-key and guest-key actions require Cloudmin Pro and host administrator acce
 | `remove_guest_ssh_key` | Remove a guest entry using `id`, `username`, the guest `key` ID, `revision` and `confirm=1` |
 
 Guest operations require a running virtual machine and an agent that supports SSH key commands. A guest key ID comes from `guest_ssh_keys` and differs from a saved library key ID. Ordinary lists never return private keys. See [SSH Keys](/docs/remote-access/ssh-keys/) for the web interface and CLI.
+
+### Notifications
+
+Notifications are available in GPL and Pro. `notifications` returns events and current conditions. It accepts an optional guest `id`, a `limit` from 1 to 500 and a `cursor` for reading successive batches. Without a cursor it returns the latest events; `cursor=0` starts at the oldest retained event. Delegated users must supply an assigned guest UUID. Their results omit destinations and delivery details.
+
+`notification_config` requires host access and returns rules, destinations without tokens or private addresses, and the last background check status. Both read actions allow GET without a token. Changes require host and management access, POST, a signed token and a writable session.
+
+| Action | Fields |
+| --- | --- |
+| `save_notification_target` | A complete `target` object; include its `id` to update it |
+| `save_notification_rule` | A complete `rule` object; optionally supply a new `target` object to save both together |
+| `set_notification_target_enabled`, `set_notification_rule_enabled` | Saved ID in `object`, plus `enabled` |
+| `delete_notification_target`, `delete_notification_rule` | Saved ID in `object` |
+| `test_notification_target` | Destination ID in `object` |
+| `retry_notification` | Event ID in `object` |
+
+Test and retry actions queue delivery for the background worker. Use `notifications` to check the result. See [Notifications](/docs/notifications/api-and-cli/#api) for rule fields, destination formats, pagination and webhook payloads.
 
 ### Host license
 
