@@ -9,7 +9,7 @@ Cloudmin's page handlers run as root, like other Webmin modules, but the risky w
 
 ### What runs as root
 
-Webmin, Cloudmin's CGI scripts, the command line, the status collector and the controller jobs. They use normal Webmin initialization, authentication and permission checks, validate form tokens and input, record progress and make the libvirt changes. The module never installs host packages from a page request; `cloudmin-install` and Cloudmin-Config prepare the host.
+Webmin, Cloudmin's CGI scripts, the command line, the status server, the statistics collector and the controller jobs. They use normal Webmin initialization, authentication and permission checks, validate form tokens and input, record progress and make the libvirt changes. The module never installs host packages from a page request; `cloudmin-install` and Cloudmin-Config prepare the host.
 
 ### What runs without root
 

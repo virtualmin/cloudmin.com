@@ -5,7 +5,7 @@ author: "Ilia Ross"
 weight: 2810000
 ---
 
-The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore, host storage, notifications and Pro SSH key management. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
+The web interface, the command line and remote clients share one versioned API for virtual machine creation, power controls, management, cloning, backups, restore, host storage, statistics, notifications and Pro SSH key management. The UI calls it internally; `api.cgi` exposes it over HTTP. The `cloudmin` command uses the same API on the host.
 
 ### Requests and responses
 
@@ -47,6 +47,17 @@ Saved-key and guest-key actions require Cloudmin Pro and host administrator acce
 | `remove_guest_ssh_key` | Remove a guest entry using `id`, `username`, the guest `key` ID, `revision` and `confirm=1` |
 
 Guest operations require a running virtual machine and an agent that supports SSH key commands. A guest key ID comes from `guest_ssh_keys` and differs from a saved library key ID. Ordinary lists never return private keys. See [SSH Keys](/docs/remote-access/ssh-keys/) for the web interface and CLI.
+
+### Statistics
+
+Statistics are available in GPL and Pro. Both actions allow authenticated GET requests without a form token.
+
+| Action | Purpose |
+| --- | --- |
+| `statistics` | Read chart data for the host or a guest, including units, coverage, peaks, events and latest live readings |
+| `statistics_export` | Read completed summaries in batches, with a cursor for resuming exports |
+
+Host queries and exports require host-administrator access. Delegated users can query only an assigned guest's exact UUID. `statistics` defaults to the last hour of host history and accepts ranges up to 366 days. See [Statistics API and CLI](/docs/statistics/api-and-cli/#api) for fields, limits and export handling.
 
 ### Notifications
 

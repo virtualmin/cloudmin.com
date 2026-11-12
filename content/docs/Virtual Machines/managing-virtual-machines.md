@@ -9,17 +9,19 @@ Select a virtual machine from the guest selector to open its details, actions an
 
 ### Details and live status
 
-The details page shows power state, guest agent status, SSH reachability, addresses, individual disks, guest filesystems, network interfaces, and disk and network transfer rates. Power state and inventory update through libvirt events over an authenticated WebSocket; browsers do not poll. CPU usage is normalized to the assigned CPUs, and memory usage comes from ten-second balloon reports and excludes reclaimable cache. Filesystem usage and guest OS details require the QEMU Guest Agent and refresh about once a minute.
+The details page shows power state, guest agent status, SSH reachability, addresses, individual disks, guest filesystems, network interfaces, and disk and network transfer rates. Power state and inventory update through libvirt events over an authenticated WebSocket; browsers do not poll. CPU usage is normalized to the assigned CPUs, and memory usage comes from balloon reports every ten seconds by default and excludes reclaimable cache. Filesystem usage and guest OS details require the QEMU Guest Agent and refresh about once a minute.
 
 Power state, guest-agent health, SSH reachability and application health are separate signals. A responding agent does not mean guest setup has finished, and an SSH banner does not mean the first boot is complete.
 
 The overview totals writable data-disk capacity and mounted filesystem usage, excluding read-only media and cloud-init disks. Host disk-image allocation is not guest filesystem usage. When usage is unavailable or stale, summaries show the known capacity alone. Host administrators also see counts of active image imports and unfinished virtual machine jobs from all users.
 
-One host collector shares status results among viewers. Each browser receives an initial snapshot and later changes over an authenticated WebSocket, with session and module permissions checked on connection and while it remains open. Hidden tabs keep their connection but pause updates and guest checks. The collector exits about a minute after its last subscriber leaves; it uses Perl and Webmin's WebSocket proxy, without a Node.js service.
+One status server shares results among viewers. Each browser receives an initial snapshot and later changes over an authenticated WebSocket, with session and module permissions checked on connection and while it remains open. Hidden tabs keep their connection but pause updates and their guest health checks. The status server exits about a minute after its last subscriber leaves; it uses Perl and Webmin's WebSocket proxy, without a Node.js service.
 
-Visible detail and connection pages share guest-agent and SSH-banner probes because SSH has no libvirt readiness event. Checks back off from five to thirty seconds when SSH responds; the overview does not probe SSH for every guest. Visible pages also share one nonblocking libvirt resource batch every ten seconds. New guests enable ten-second balloon reports; the collector enables them for existing running guests without changing their RAM allocation or saved definition. Host process RSS is not a substitute for guest memory usage.
+Visible detail and connection pages share guest-agent and SSH-banner probes because SSH has no libvirt readiness event. Checks back off from five to thirty seconds when SSH responds; the overview does not probe SSH for every guest.
 
-Filesystem and guest OS checks run in one worker, at most once per second across the host and normally once per minute for each guest. Libvirt events can trigger an earlier refresh; all viewers share the results.
+A separate background statistics service samples resources for all guests every ten seconds by default, even when no browser is open. The status server reads its latest values. New guests enable ten-second balloon reports; the statistics collector enables reports at the configured sampling interval for existing running guests without changing their RAM allocation or saved definition. Host process RSS is not a substitute for guest memory usage.
+
+The statistics service also checks guest filesystems and OS details in a separate worker, normally once a minute per guest. Slow or unavailable guest agents do not block resource sampling. Open **Statistics** in the guest menu for charts and saved history. See [Resource Statistics](/docs/statistics/overview/) for chart controls, collection settings and retention.
 
 ### Power controls
 

@@ -38,6 +38,7 @@ Downloads, host-file reads, checksum checks, disk inspection, SSH key validation
 - NAT, routed and isolated networks and guided host bridges
 - Storage pools on directories, NFS and LVM volume groups, with volume inventory
 - Delegated access per virtual machine and live status in the browser
+- [Resource statistics](/docs/statistics/overview/) with interactive host and guest charts, background collection and local history in GPL and Pro
 - [Notifications](/docs/notifications/overview/) for resource use, guest health and failed jobs, with nine delivery methods in GPL and Pro
 
 See the [feature status](/docs/roadmap/) page for what is planned, including Cloudmin Connect for multiple hosts, Cloudmin 9 import and Xen.

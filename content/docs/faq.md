@@ -79,7 +79,7 @@ Yes. Set **Host administrator?** to **No** for that Webmin user and assign the g
 
 > ##### What runs as root?
 
-Webmin, Cloudmin's page handlers, the CLI, the status collector and the controller jobs run as root and make the libvirt changes. Downloads, host-file reads, checksum checks, disk inspection, SSH key validation, cloud-init seed generation, consoles and terminal relays run without root in systemd-managed workers. See [Privilege separation](/docs/development/privilege-separation/).
+Webmin, Cloudmin's page handlers, the CLI, the status server, the statistics collector and the controller jobs run as root and make the libvirt changes. Downloads, host-file reads, checksum checks, disk inspection, SSH key validation, cloud-init seed generation, consoles and terminal relays run without root in systemd-managed workers. See [Privilege separation](/docs/development/privilege-separation/).
 
 > ##### Where do I report a security issue?
 

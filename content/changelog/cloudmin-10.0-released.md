@@ -34,6 +34,8 @@ Cloudmin 10.0 is a rewrite of Cloudmin around libvirt. It supports QEMU/KVM and 
 * Add LVM and LVM-thin storage pools registered from existing volume groups, with raw guest disks, offline growth, native snapshots, clones, backups and restore
 * Add delegation of individual virtual machines to Webmin users with separate grants for power controls, forced power controls, consoles, SSH terminals and password resets, enforced by read-only mode and rechecked on open connections
 * Add live status over authenticated WebSockets for power state, guest agent, SSH reachability, resource usage and guest filesystem usage, without browser polling
+* Add interactive host and guest [Statistics](/docs/statistics/overview/) charts in GPL and Pro, with zoomable CPU, memory, disk and network history, peaks, event markers, host load, storage usage and guest allocations
+* Add background resource collection, local history with configurable sampling, retention and disk limits, delegated guest statistics, and API and CLI queries and summary exports
 * Add a versioned JSON API shared by the web interface, the `api.pl` command line and remote clients, with signed requests and audit logging
 * Add durable jobs with resource reservations, progress, cancellation at safe points and recovery after a controller restart for creation, cloning, backups, restores, captures and hardware changes
 * Add isolated systemd workers without root privileges for downloads, host-file reads, checksum checks, disk inspection, SSH key validation, cloud-init seeds, consoles and terminal relays

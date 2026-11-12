@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
         altKey = isMac ? "⌥" : "Alt",
         concatKey = isMac ? " " : " + ",
         // Bump when a capture is replaced so cached copies are refreshed
-        timeStamp = 202611010000,
+        timeStamp = 202611120000,
         getScreenshots = function () {
             const screenshotType =
                 localStorage.getItem("pref-theme") === "dark" ||
@@ -18,6 +18,14 @@ window.addEventListener("DOMContentLoaded", () => {
                 {
                     src: "/images/screenshots/" + screenshotType + "/1-host-overview.png?v=" + timeStamp,
                     title: "Cloudmin ⇾ Host Overview",
+                },
+                {
+                    src: "/images/screenshots/" + screenshotType + "/2-host-statistics.jpeg?v=" + timeStamp,
+                    title: "Cloudmin ⇾ Host Statistics",
+                },
+                {
+                    src: "/images/screenshots/" + screenshotType + "/3-guest-statistics.jpeg?v=" + timeStamp,
+                    title: "Cloudmin ⇾ Guest Statistics",
                 },
             ];
         };

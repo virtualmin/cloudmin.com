@@ -13,6 +13,8 @@ Install it on a fresh Rocky Linux, AlmaLinux, Debian or Ubuntu host. Pick a clou
 
 Cloudmin GPL is free: one host, as many virtual machines as you like. Cloudmin Pro adds SSH key management, custom setup scripts, cloud backups and image capture, with tenancy planned. Both share the same core, API and command line. Managing many hosts from one place, with live migration, is coming in Cloudmin Connect.
 
+Interactive [Statistics](/docs/statistics/overview/) charts show CPU, memory, disk and network usage for the host and every guest. Zoom through saved history, compare devices and see peaks alongside system events. Background collection keeps recording when no browser is open, in both GPL and Pro.
+
 Built-in [notifications](/docs/notifications/overview/) watch resource use, guest health and failed jobs in both GPL and Pro. Send alerts through email, Slack, Discord, Teams Workflows, Telegram, ntfy, Pushover, Gotify or your own webhooks. Set your own thresholds, reminders and recovery messages, with automatic delivery retries and history.
 
 Already run Virtualmin? Pick a Virtualmin template and the whole hosting stack installs inside the new machine. Follow it from the host and reach the guest's Webmin through it, even behind NAT.
