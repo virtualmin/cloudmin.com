@@ -73,6 +73,10 @@ Notifications are available in GPL and Pro. `notifications` returns events and c
 | `delete_notification_target`, `delete_notification_rule` | Saved ID in `object` |
 | `test_notification_target` | Destination ID in `object` |
 | `retry_notification` | Event ID in `object` |
+| `mute_notifications` | Guest UUID or `all` in `id` |
+| `unmute_notifications` | Guest UUID or `all` in `id` |
+
+History returns `muted` and `all_muted` as 0 or 1. For guest history, `muted` reports only that guest's own mute. For combined history, it reports the global mute. `all_muted` always reports the global mute. A guest is muted if either value is 1. Mutes stay active until you undo them. Checks and history continue while muted.
 
 Test and retry actions queue delivery for the background worker. Use `notifications` to check the result. See [Notifications](/docs/notifications/api-and-cli/#api) for rule fields, destination formats, pagination and webhook payloads.
 

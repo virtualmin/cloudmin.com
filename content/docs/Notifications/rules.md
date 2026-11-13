@@ -46,7 +46,7 @@ Guest power rules detect guests that are not running. Agent rules detect an unav
 
 Planned stops made in Cloudmin pause checks until the guest runs again. If the guest is still running when checked after two minutes, checks resume. Reboots allow ten minutes to recover. Unfinished guest jobs, such as backups, snapshots and disk changes, also pause checks. So do failed jobs that still require recovery. Stops made outside Cloudmin may trigger alerts.
 
-Manual timed silencing and scheduled maintenance windows are not available yet. Planned guest operations pause checks automatically as described above. Disabling a rule or destination keeps it disabled until you enable it again.
+[Muting alerts](/docs/notifications/muting-alerts/) pauses delivery while checks continue. Disabling a rule or destination keeps it disabled until you enable it again.
 
 ### Changing or disabling rules
 

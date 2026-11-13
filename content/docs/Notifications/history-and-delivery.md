@@ -17,3 +17,7 @@ Failed deliveries retry with increasing delays, up to six attempts in total, exc
 Cloudmin keeps rules, alert state and unsent messages across restarts in the private `notifications/notifications.sqlite` database. It is separate from resource history and its disk budget. Events older than 30 days are removed once none of their deliveries are pending.
 
 Use the [API or CLI](/docs/notifications/api-and-cli/) to read more than the latest 100 events. Both support batches of up to 500 events and a cursor to continue from the previous batch.
+
+### Muted events
+
+Muted events stay in history. This includes events created during a mute and queued alerts canceled when you mute. Deliveries marked muted cannot be retried or sent later. After unmuting, a problem still present at the next fresh check sends one new alert. Problems that have recovered stay quiet. See [Muting Alerts](/docs/notifications/muting-alerts/).

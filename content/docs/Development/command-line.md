@@ -121,6 +121,8 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [set-notification-rule-enabled](/docs/development/api-programs/set-notification-rule-enabled/): Enables or disables a notification rule.
 - [retry-notification](/docs/development/api-programs/retry-notification/): Retries failed deliveries for one event.
 - [test-notification-target](/docs/development/api-programs/test-notification-target/): Queues a test notification for the next delivery run.
+- [mute-notifications](/docs/development/api-programs/mute-notifications/): Mutes alerts until manually unmuted.
+- [unmute-notifications](/docs/development/api-programs/unmute-notifications/): Resumes alerts after a manual mute.
 
 ### License Manager
 

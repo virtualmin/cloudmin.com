@@ -12,7 +12,7 @@ Cloudmin sends email, chat and push messages or webhooks for resource use, guest
 
 Notifications are included in both Cloudmin GPL and Pro. Choose thresholds, waiting periods, reminders and recovery messages for the host, all guests or selected guests. Send each alert to one or more destinations.
 
-You need host and management access to change rules or destinations. Users assigned to a guest can read that guest's events.
+You need host and management access to change rules, destinations or mutes. Changes are blocked in read-only mode. Users assigned to a guest can read that guest's events.
 
 ### Set up your first alert
 
@@ -28,6 +28,7 @@ Open **History** to check delivery results, or select a guest and open **Notific
 
 - [Destinations](/docs/notifications/destinations/): Set up email, chat, push messages and webhooks, and test delivery.
 - [Rules](/docs/notifications/rules/): Choose conditions, machines, thresholds, waiting periods, reminders and recovery messages.
+- [Muting Alerts](/docs/notifications/muting-alerts/): Mute all alerts or one guest until you unmute them.
 - [History and Delivery](/docs/notifications/history-and-delivery/): Read event history, understand delivery results and retry failed messages.
 - [API and CLI](/docs/notifications/api-and-cli/): Manage notifications from scripts and read webhook payloads.
 
