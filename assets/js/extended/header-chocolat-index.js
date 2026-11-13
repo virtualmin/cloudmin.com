@@ -27,6 +27,10 @@ window.addEventListener("DOMContentLoaded", () => {
                     src: "/images/screenshots/" + screenshotType + "/3-guest-statistics.jpeg?v=" + timeStamp,
                     title: "Cloudmin ⇾ Guest Statistics",
                 },
+                {
+                    src: "/images/screenshots/" + screenshotType + "/4-guest-notifications.jpeg?v=" + timeStamp,
+                    title: "Cloudmin ⇾ Guest Notifications",
+                },
             ];
         };
 

@@ -43,6 +43,7 @@ Save this rule in `rule.json`. Replace `TARGET_ID` with the destination ID retur
 cloudmin save-notification-rule --file rule.json
 cloudmin get-notifications --json
 cloudmin get-notifications --id GUEST_UUID --cursor 0 --limit 100 --json
+cloudmin get-notifications --page 2 --limit 25 --search memory --json
 cloudmin delete-notification-rule --id RULE_ID
 cloudmin delete-notification-target --id TARGET_ID
 ```
@@ -72,6 +73,10 @@ Use `--file -` to read JSON from standard input. Remove a destination from all i
 These actions use version 1 of the authenticated API. `notifications` returns events and the latest status of each monitored condition. An optional guest `id` limits both to that guest. The `limit` sets how many events to return, from 1 to 500, with a default of 100.
 
 Without a cursor, the API returns the latest events. Set `cursor=0` to start with the oldest retained event. Pass the returned cursor to read the next batch. Event IDs increase but may have gaps.
+
+Set `page=1` for the newest page and increase it to read older pages. Page requests cannot include `cursor`. The response includes `total`, `page`, `pages` and `limit`. Requesting a page past the end returns the last page. Events within each batch are ordered by increasing ID.
+
+The optional `search` accepts a single-line phrase of up to 200 characters. It ignores letter case and trims spaces at both ends. It filters events before counting them and selecting a page, but does not filter the returned `states`. Use `get-notifications --page` and `--search` for the same behavior from the command line.
 
 `notification_config` returns saved rules, destinations without tokens or private chat URLs, and the last background job status. Each destination's `last_delivery` shows the current result of its last recorded attempt. If that attempt record is unavailable, it uses the newest retained delivery record. The optional `at` field gives the attempt time. Records without a finished attempt have no time. `last_delivery` is null when no delivery record remains.
 

@@ -6,7 +6,13 @@ weight: 2734000
 menuTitle: "History and Delivery"
 ---
 
-**History** shows conditions needing attention and the latest 100 events, including alerts, reminders, recoveries and test messages. Host administrators can see each destination's delivery result. Users with management access can also retry failed deliveries unless the session is read-only. Select a guest and open **Notifications** to see only its history.
+**History** shows conditions needing attention and all retained events, including alerts, reminders, recoveries and test messages. Events appear 25 at a time, newest first. Host administrators can see each destination's delivery result. Users with management access can also retry failed deliveries unless the session is read-only. Select a guest and open **Notifications** to see only its history.
+
+### Searching history
+
+Use the search box above the events to find alerts, recoveries, reminders and tests by rule name, affected resource, condition, severity, state or recorded values. Searches cover all retained history, including older events. Letter case is ignored and punctuation is matched as ordinary text. Delivery addresses and errors are not searched.
+
+Each event shows the reading and threshold saved when it occurred, so older events keep their original values even after a rule changes. Users assigned to a guest can search only that guest's events. Conditions needing attention stay visible while you search or browse older pages.
 
 ### Delivery retries
 
@@ -16,7 +22,7 @@ Failed deliveries retry with increasing delays, up to six attempts in total, exc
 
 Cloudmin keeps rules, alert state and unsent messages across restarts in the private `notifications/notifications.sqlite` database. It is separate from resource history and its disk budget. Events older than 30 days are removed once none of their deliveries are pending.
 
-Use the [API or CLI](/docs/notifications/api-and-cli/) to read more than the latest 100 events. Both support batches of up to 500 events and a cursor to continue from the previous batch.
+The [API and CLI](/docs/notifications/api-and-cli/) read the same history in batches of up to 500 events, by page or by cursor, with the same search filter.
 
 ### Muted events
 

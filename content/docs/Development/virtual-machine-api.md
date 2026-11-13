@@ -61,7 +61,7 @@ Host queries and exports require host-administrator access. Delegated users can 
 
 ### Notifications
 
-Notifications are available in GPL and Pro. `notifications` returns events and current conditions. It accepts an optional guest `id`, a `limit` from 1 to 500 and a `cursor` for reading successive batches. Without a cursor it returns the latest events; `cursor=0` starts at the oldest retained event. Delegated users must supply an assigned guest UUID. Their results omit destinations and delivery details.
+Notifications are available in GPL and Pro. `notifications` returns events and current conditions. It accepts an optional guest `id`, a `limit` from 1 to 500, and either a `cursor` for reading successive batches or a `page` number starting at 1 for the newest events. Without a cursor or page it returns the latest events; `cursor=0` starts at the oldest retained event. Page responses include `total`, `page`, `pages` and `limit`. An optional `search` phrase of up to 200 characters filters events, ignoring letter case, before counting and paging. Delegated users must supply an assigned guest UUID. Their results omit destinations and delivery details.
 
 `notification_config` requires host access and returns rules, destinations without tokens or private addresses, and the last background check status. Both read actions allow GET without a token. Changes require host and management access, POST, a signed token and a writable session.
 

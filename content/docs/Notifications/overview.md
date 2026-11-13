@@ -29,7 +29,7 @@ Open **History** to check delivery results, or select a guest and open **Notific
 - [Destinations](/docs/notifications/destinations/): Set up email, chat, push messages and webhooks, and test delivery.
 - [Rules](/docs/notifications/rules/): Choose conditions, machines, thresholds, waiting periods, reminders and recovery messages.
 - [Muting Alerts](/docs/notifications/muting-alerts/): Mute all alerts or one guest until you unmute them.
-- [History and Delivery](/docs/notifications/history-and-delivery/): Read event history, understand delivery results and retry failed messages.
+- [History and Delivery](/docs/notifications/history-and-delivery/): Search event history, understand delivery results and retry failed messages.
 - [API and CLI](/docs/notifications/api-and-cli/): Manage notifications from scripts and read webhook payloads.
 
 ### Host outages
