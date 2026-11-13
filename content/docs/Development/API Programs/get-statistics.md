@@ -2,7 +2,7 @@
 title: "get-statistics"
 subSection: "Statistics"
 date: 2026-11-12
-weight: 2849410
+weight: 2849710
 ---
 
 ### Shows host or virtual machine resource history

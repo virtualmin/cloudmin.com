@@ -2,7 +2,7 @@
 title: "Notifications"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2731000
+weight: 2721000
 menuTitle: "Overview"
 aliases:
   - /docs/administration/notifications/

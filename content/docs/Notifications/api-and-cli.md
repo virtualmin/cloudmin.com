@@ -2,7 +2,7 @@
 title: "Notification API and CLI"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2735000
+weight: 2725000
 menuTitle: "API and CLI"
 ---
 

@@ -2,7 +2,7 @@
 title: "Notification Rules"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2733000
+weight: 2723000
 menuTitle: "Rules"
 ---
 

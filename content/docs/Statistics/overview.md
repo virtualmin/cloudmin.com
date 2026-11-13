@@ -2,7 +2,7 @@
 title: "Resource Statistics"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2721000
+weight: 2731000
 menuTitle: "Overview"
 ---
 

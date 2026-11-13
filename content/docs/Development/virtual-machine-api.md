@@ -48,17 +48,6 @@ Saved-key and guest-key actions require Cloudmin Pro and host administrator acce
 
 Guest operations require a running virtual machine and an agent that supports SSH key commands. A guest key ID comes from `guest_ssh_keys` and differs from a saved library key ID. Ordinary lists never return private keys. See [SSH Keys](/docs/remote-access/ssh-keys/) for the web interface and CLI.
 
-### Statistics
-
-Statistics are available in GPL and Pro. Both actions allow authenticated GET requests without a form token.
-
-| Action | Purpose |
-| --- | --- |
-| `statistics` | Read chart data for the host or a guest, including units, coverage, peaks, events and latest live readings |
-| `statistics_export` | Read completed summaries in batches, with a cursor for resuming exports |
-
-Host queries and exports require host-administrator access. Delegated users can query only an assigned guest's exact UUID. `statistics` defaults to the last hour of host history and accepts ranges up to 366 days. See [Statistics API and CLI](/docs/statistics/api-and-cli/#api) for fields, limits and export handling.
-
 ### Notifications
 
 Notifications are available in GPL and Pro. `notifications` returns events and current conditions. It accepts an optional guest `id`, a `limit` from 1 to 500, and either a `cursor` for reading successive batches or a `page` number starting at 1 for the newest events. Without a cursor or page it returns the latest events; `cursor=0` starts at the oldest retained event. Page responses include `total`, `page`, `pages` and `limit`. An optional `search` phrase of up to 200 characters filters events, ignoring letter case, before counting and paging. Delegated users must supply an assigned guest UUID. Their results omit destinations and delivery details.
@@ -79,6 +68,17 @@ Notifications are available in GPL and Pro. `notifications` returns events and c
 History returns `muted` and `all_muted` as 0 or 1. For guest history, `muted` reports only that guest's own mute. For combined history, it reports the global mute. `all_muted` always reports the global mute. A guest is muted if either value is 1. Mutes stay active until you undo them. Checks and history continue while muted.
 
 Test and retry actions queue delivery for the background worker. Use `notifications` to check the result. See [Notifications](/docs/notifications/api-and-cli/#api) for rule fields, destination formats, pagination and webhook payloads.
+
+### Statistics
+
+Statistics are available in GPL and Pro. Both actions allow authenticated GET requests without a form token.
+
+| Action | Purpose |
+| --- | --- |
+| `statistics` | Read chart data for the host or a guest, including units, coverage, peaks, events and latest live readings |
+| `statistics_export` | Read completed summaries in batches, with a cursor for resuming exports |
+
+Host queries and exports require host-administrator access. Delegated users can query only an assigned guest's exact UUID. `statistics` defaults to the last hour of host history and accepts ranges up to 366 days. See [Statistics API and CLI](/docs/statistics/api-and-cli/#api) for fields, limits and export handling.
 
 ### Host license
 

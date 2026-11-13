@@ -2,7 +2,7 @@
 title: "API and CLI"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2724000
+weight: 2734000
 ---
 
 ### Command line

@@ -104,11 +104,6 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [add-system-key](/docs/development/api-programs/add-system-key/): Adds public keys to an existing guest account (Pro).
 - [remove-system-key](/docs/development/api-programs/remove-system-key/): Removes one authorized key entry from a guest account (Pro).
 
-### Statistics
-
-- [get-statistics](/docs/development/api-programs/get-statistics/): Shows host or virtual machine resource history.
-- [export-statistics](/docs/development/api-programs/export-statistics/): Exports completed resource summaries for synchronization.
-
 ### Notifications
 
 - [get-notifications](/docs/development/api-programs/get-notifications/): Lists notification events.
@@ -123,6 +118,11 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [test-notification-target](/docs/development/api-programs/test-notification-target/): Queues a test notification for the next delivery run.
 - [mute-notifications](/docs/development/api-programs/mute-notifications/): Mutes alerts until manually unmuted.
 - [unmute-notifications](/docs/development/api-programs/unmute-notifications/): Resumes alerts after a manual mute.
+
+### Statistics
+
+- [get-statistics](/docs/development/api-programs/get-statistics/): Shows host or virtual machine resource history.
+- [export-statistics](/docs/development/api-programs/export-statistics/): Exports completed resource summaries for synchronization.
 
 ### License Manager
 

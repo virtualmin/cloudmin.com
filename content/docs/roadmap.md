@@ -45,15 +45,15 @@ Cloudmin 10 is developed in the open and is not released yet. This page lists wh
 - NAT, routed and isolated virtual networks, and guided host bridge creation through NetworkManager, Netplan or ifupdown with connectivity confirmation and automatic rollback.
 - Storage pool and volume inventory; directory, filesystem and NFS pools for creation, cloning, backups and imports; registered LVM volume groups and thin pools for creation, cloning, backups, restore and native snapshots, with raw guest disks.
 
-#### Statistics
-- [Interactive host and guest charts](/docs/statistics/overview/) for CPU, memory, disk and network usage, with zoomable history, peaks, averages and event markers in GPL and Pro.
-- Host load, storage pool usage and guest resource allocations; guest filesystem usage through the QEMU Guest Agent.
-- Background collection without an open browser, local history with configurable retention and disk limits, delegated guest access, and read APIs and CLI commands for queries and summary exports.
-
 #### Notifications
 - [Host and guest alerts](/docs/notifications/overview/) for CPU, memory, filesystems, storage pools, load, transfer rates, guest power, agent availability, collector health and failed jobs, included in GPL and Pro.
 - Email, JSON webhooks, Slack, Discord, Teams Workflows, ntfy, Telegram, Pushover and Gotify destinations, with test messages and delivery history.
 - Configurable thresholds, durations, minimum gaps, reminders and recovery messages; automatic pauses during planned guest operations; persistent delivery queues and retries. Rules, destinations and history are available through the web interface, API and CLI.
+
+#### Statistics
+- [Interactive host and guest charts](/docs/statistics/overview/) for CPU, memory, disk and network usage, with zoomable history, peaks, averages and event markers in GPL and Pro.
+- Host load, storage pool usage and guest resource allocations; guest filesystem usage through the QEMU Guest Agent.
+- Background collection without an open browser, local history with configurable retention and disk limits, delegated guest access, and read APIs and CLI commands for queries and summary exports.
 
 #### Platform
 - Durable jobs with reservations, progress, cancellation and recovery after a controller restart.

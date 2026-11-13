@@ -2,7 +2,7 @@
 title: "Notification History and Delivery"
 date: 2026-11-12
 author: "Ilia Ross"
-weight: 2734000
+weight: 2724000
 menuTitle: "History and Delivery"
 ---
 
