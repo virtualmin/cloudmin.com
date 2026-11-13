@@ -7,28 +7,24 @@ loadGalleryIndex: true
 ---
 
 {{< html span "" "" cloudmin-intro >}}
-Cloudmin turns a Linux server into your own cloud. Create and run virtual machines from your browser, on hardware you control. Cloudmin runs inside Webmin and is built on libvirt and QEMU/KVM, the standard Linux virtualization stack. Every machine is a normal libvirt guest, so nothing is locked in. Cloudmin adds the parts libvirt leaves to you, such as images, templates, snapshots, clones, backups, consoles, permissions and background jobs.
+Cloudmin turns a Linux server into your own cloud. Create and run virtual machines from your browser, on hardware you control. It runs inside Webmin on libvirt and QEMU/KVM, so every machine is a normal libvirt guest and nothing is locked in.
 
-Install it on a fresh Rocky Linux, AlmaLinux, Debian or Ubuntu host. Pick a cloud image or bring your own, fill in one form, and the machine boots with the user, SSH keys and network you chose. Installer ISOs open a graphical console in your browser. Long tasks run as jobs you can watch, and resume if something interrupts them.
+Install it on a fresh Rocky Linux, AlmaLinux, Debian or Ubuntu host. Pick a cloud image, fill in one form, and the machine boots. Snapshots, clones, backups and consoles are built in, along with statistics charts and notifications by email, chat or webhook.
 
-Cloudmin GPL is free: one host, as many virtual machines as you like. Cloudmin Pro adds SSH key management, custom setup scripts, cloud backups and image capture, with tenancy planned. Both share the same core, API and command line. Managing many hosts from one place, with live migration, is coming in Cloudmin Connect.
+Cloudmin GPL is free: one host, as many machines as you like. Cloudmin Pro adds SSH key management, setup scripts, cloud backups and image capture. Managing many hosts from one place is coming in Cloudmin Connect.
 
-Interactive [Statistics](/docs/statistics/overview/) charts show CPU, memory, disk and network usage for the host and every guest. Zoom through saved history, compare devices and see peaks alongside system events. Background collection keeps recording when no browser is open, in both GPL and Pro.
-
-Built-in [notifications](/docs/notifications/overview/) watch resource use, guest health and failed jobs in both GPL and Pro. Send alerts through email, Slack, Discord, Teams Workflows, Telegram, ntfy, Pushover, Gotify or your own webhooks. Set your own thresholds, reminders and recovery messages, with automatic delivery retries and history.
-
-Already run Virtualmin? Pick a Virtualmin template and the whole hosting stack installs inside the new machine. Follow it from the host and reach the guest's Webmin through it, even behind NAT.
+Run Virtualmin? Pick a Virtualmin template and the whole hosting stack installs inside the new machine.
 
 {{< html div chocolat-drop >}}
 
 ## Cloudmin Features
-Cloudmin gives you one place to create, run, protect and reach KVM virtual machines on a Linux host. Built on Webmin, it adds the operational tools around libvirt that a host needs every day.
+One place to create, run, protect and reach KVM virtual machines on a Linux host.
 
 {{< index-1 >}}
 
 ## Built for safety, speed and control
 
-Cloudmin has plenty of company, both open source and commercial. It sets out to be the panel that makes a single KVM host effortless without hiding Linux from you, and to grow into a multi-host platform on the same foundation through Cloudmin Connect.
+Cloudmin makes a single KVM host easy to run without hiding Linux from you. Cloudmin Connect will grow it into a multi-host platform on the same foundation.
 
 {{< index-2 >}}
 
