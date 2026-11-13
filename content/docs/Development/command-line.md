@@ -78,10 +78,10 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [list-pools](/docs/development/api-programs/list-pools/): Lists active and inactive storage pools.
 - [list-volumes](/docs/development/api-programs/list-volumes/): Lists storage volumes and their owners.
 - [list-volume-groups](/docs/development/api-programs/list-volume-groups/): Lists LVM volume groups available for registration.
-- [create-pool](/docs/development/api-programs/create-pool/): Registers a directory or an existing LVM volume group.
-- [start-pool](/docs/development/api-programs/start-pool/): Starts a directory pool.
-- [stop-pool](/docs/development/api-programs/stop-pool/): Stops a directory pool without deleting its files.
-- [set-pool-autostart](/docs/development/api-programs/set-pool-autostart/): Changes whether a directory pool starts at boot.
+- [create-pool](/docs/development/api-programs/create-pool/): Registers a directory, NFS export or existing LVM volume group.
+- [start-pool](/docs/development/api-programs/start-pool/): Starts a directory or NFS pool.
+- [stop-pool](/docs/development/api-programs/stop-pool/): Stops a directory or NFS pool without deleting its files.
+- [set-pool-autostart](/docs/development/api-programs/set-pool-autostart/): Changes whether a directory or NFS pool starts at boot.
 - [delete-volume](/docs/development/api-programs/delete-volume/): Deletes an unused storage volume after a review.
 - [unregister-pool](/docs/development/api-programs/unregister-pool/): Removes a pool registration and keeps its data.
 
@@ -102,7 +102,7 @@ Each command has its own page with syntax, options and examples. `cloudmin help 
 - [delete-ssh-key](/docs/development/api-programs/delete-ssh-key/): Deletes a library entry without changing guests (Pro).
 - [list-system-keys](/docs/development/api-programs/list-system-keys/): Lists an existing guest account's SSH keys (Pro).
 - [add-system-key](/docs/development/api-programs/add-system-key/): Adds public keys to an existing guest account (Pro).
-- [remove-system-key](/docs/development/api-programs/remove-system-key/): Removes one guest SSH key (Pro).
+- [remove-system-key](/docs/development/api-programs/remove-system-key/): Removes one authorized key entry from a guest account (Pro).
 
 ### Statistics
 
